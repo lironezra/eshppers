@@ -1,0 +1,26 @@
+.header {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    background-color: #2d2d2d;
+  
+    .logo-container {
+      // height: 100%;
+      // width: 50px;
+      padding: 9px;
+    }
+  
+    .options {
+      width: 40%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+  
+      .option {
+        padding: 10px 15px;
+      }
+    }
+  }
