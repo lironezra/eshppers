@@ -1,0 +1,61 @@
+.mu-section {
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    position: relative;
+    clear: both;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 0;
+    letter-spacing: 0;
+    z-index: 0; 
+    margin-bottom: 3%;
+
+    .sales-banner {
+        padding: 24px 0 8px;        
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: cover;       
+
+        .banner-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            height: 95%;
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: cover;
+        }
+
+        .banner-header {
+            width: 100%;
+            max-width: 768px;
+            margin: 0 auto;
+            padding-bottom: 16px;
+            text-align: center;
+
+            .salesBanner-headerWrap-desktop {
+                display: block;
+
+                .salesBanner-header-textContainer {
+                    display: block;
+                    .salesBanner-header-title {
+                        font-size: 33px;
+                        line-height: 32px;
+                        letter-spacing: 2.8px;
+                        color: #fff;
+                        font-weight: 900;
+                        font-style: italic;
+
+                        .salesBanner-header__tape {
+                            line-height: calc(1.5em + 4px);
+                            padding: 1px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

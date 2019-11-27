@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import './collection-item.styles.scss';
 
 const CollectionItem = ({ id, name, price, imageUrl}) => {
@@ -16,6 +19,9 @@ const CollectionItem = ({ id, name, price, imageUrl}) => {
                 {/* <span className='name'>{name}</span> */}
                 <span className='price'>${price}</span>
             </div>
+            <button type="button" className="save-for-later">
+                <span><FontAwesomeIcon className='icon-heart' icon={faHeart} /></span>
+            </button>
         </article>
         // <div className='collection-item'>
         //     <div
