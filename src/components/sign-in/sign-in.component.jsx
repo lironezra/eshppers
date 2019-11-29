@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
+import { signInWithGoogle, signInWithFacebook, signInWithTwitter } from '../../firebase/firebase.utils';
+import StyledFireBaseAuth from 'react-firebaseui/StyledFirebaseAuth'
+
 import './sign-in.styles.scss';
 
 class SignIn extends Component {
@@ -52,6 +55,13 @@ class SignIn extends Component {
 
                     <CustomButton type='submit'>SIGN IN</CustomButton>
                 </form>
+                <div className='social-login'>
+                    <h2 className='title'>Login</h2>
+                    <p>With your social media</p>
+                    <CustomButton onClick={signInWithGoogle} authWith='google'>Google</CustomButton>
+                    <CustomButton onClick={signInWithFacebook} authWith='facebook'>Facebook</CustomButton>
+                    <CustomButton onClick={signInWithTwitter} authWith='twitter'>Twitter</CustomButton>
+                </div>
             </div>
         );
     }
