@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { auth } from '../../firebase/firebase.utils';
+
+import {loginUser}  from '../../redux/auth/auth.actions.js'
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
@@ -17,10 +22,17 @@ class SignIn extends Component {
         }
     }
 
+    componentDidMount() {
+        auth.onAuthStateChanged(user => {
+            if (user) {            
+                this.props.history.push('/');
+            }
+        });
+    }   
+
     handleSubmit = (event) => {
         event.preventDefault();
-
-        this.setState({ email: '', password: '' });
+        this.props.onLogin(this.state.email, this.state.password);
     }
 
     handleChange = (event) => {
@@ -66,4 +78,21 @@ class SignIn extends Component {
     }
 }
 
-export default SignIn;
+const mapStateToProps = state => {
+    return {
+        isLoggingIn: state.auth.isLoggingIn,
+        loginError: state.auth.loginError,
+        isAuthenticated: state.auth.isAuthenticated,
+        user: state.auth.user
+    };
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogin: (email, password) => dispatch(loginUser(email, password))
+    };
+};
+
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignIn));

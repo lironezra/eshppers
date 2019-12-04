@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+import  { signupUser } from '../../redux/auth/auth.actions';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
 import './sign-up.styles.scss';
 
-class SIgnUp extends Component {
+class SignUp extends Component {
     constructor(props) {
         super(props);
 
@@ -20,10 +24,22 @@ class SIgnUp extends Component {
     handleSubmit = event => {
         event.preventDefault();
         const { displayName, email, password, confirmPassword } = this.state;
+        const newUser = {
+            displayName, 
+            email, 
+            password, 
+            confirmPassword
+        };
 
-        if(password !== confirmPassword) {
-            alert("PAssword don't match!!!");
+        if(newUser.password !== newUser.confirmPassword) {
+            alert("Password don't match!!!");
             return;
+        }
+
+        this.props.onSignup(newUser);
+        if(this.props.isAuthenticated) {
+
+            // this.props.history.push('/');
         }
     }
 
@@ -44,6 +60,7 @@ class SIgnUp extends Component {
                         type='text'
                         name='displayName' 
                         value={displayName} 
+                        // value='Liron Ezra' 
                         handleChange={this.handleChange}
                         label='Display Name'
                         required />                    
@@ -51,6 +68,7 @@ class SIgnUp extends Component {
                         type='email'
                         name='email' 
                         value={email} 
+                        // value='r@gmail.com' 
                         handleChange={this.handleChange}
                         label='Email'
                         required />                        
@@ -58,6 +76,7 @@ class SIgnUp extends Component {
                         type='password'
                         name='password' 
                         value={password} 
+                        // value='111111' 
                         handleChange={this.handleChange}
                         label='Password'
                         required />
@@ -65,6 +84,7 @@ class SIgnUp extends Component {
                         type='password'
                         name='confirmPassword' 
                         value={confirmPassword} 
+                        // value='111111'
                         handleChange={this.handleChange}
                         label='Confirm Password'
                         required />                    
@@ -75,4 +95,18 @@ class SIgnUp extends Component {
     }
 }
 
-export default SIgnUp;
+const mapStateToProps = state => {
+    return {
+        isSigningup: state.auth.isSigningup,
+        signupError: state.auth.signupError,
+        isAuthenticated: state.auth.isAuthenticated
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onSignup: (newUser) => dispatch(signupUser(newUser))
+    };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp));

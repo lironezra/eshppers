@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import { auth } from '../../firebase/firebase.utils';
+import { logoutUser }  from '../../redux/auth/auth.actions.js'
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
@@ -9,7 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import './header.styles.scss';
 
-const Header = ({ currentUser }) => {
+// const Header = ({ currentUser }) => {
+const Header = ({isAuthenticated, onLogout}) => {
     return (
         <div className='header'>
             <Link className='logo-container' to='/'>
@@ -19,24 +21,38 @@ const Header = ({ currentUser }) => {
                 <Link className='option' to='shop'>
                     SHOP
                 </Link>           
-                <Link className='option' to='shop'>
+                <Link className='option' to='contact'>
                     CONTACT
                 </Link>
+                <Link className='option' to='like-items'>
+                    <FontAwesomeIcon icon={faHeart} />
+                </Link>
                 {
-                    currentUser ? (
-                        <div className='option' onClick={() => auth.signOut()}>
+                    isAuthenticated ? (
+                        <div className='option' onClick={onLogout}>
                             <strong>SIGN OUT</strong>
                         </div> 
                     ) : (
                         <Link className='option' to='signin'>SIGN IN</Link>
                     )
                 }
-                {/* <Link className='option' to='like-items'>
-                    <FontAwesomeIcon icon={faHeart} />
-                </Link> */}
+
             </div>
         </div>
     );
 };
 
-export default Header;
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.isAuthenticated,
+        logoutError: state.auth.logoutError
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogout: () => dispatch(logoutUser())
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
