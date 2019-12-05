@@ -38,7 +38,6 @@ class SignUp extends Component {
 
         this.props.onSignup(newUser);
         if(this.props.isAuthenticated) {
-
             // this.props.history.push('/');
         }
     }

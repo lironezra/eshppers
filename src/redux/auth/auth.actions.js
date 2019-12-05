@@ -1,4 +1,4 @@
-import { auth, firestore, createUserProfileDocument } from '../../firebase/firebase.utils';
+import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 import * as actionTypes from './auth.types';
 
 const requestSignup = () => {
@@ -76,18 +76,18 @@ export const signupUser = (newUser) => dispatch => {
     dispatch(requestSignup());
     auth
     .createUserWithEmailAndPassword(newUser.email, newUser.password)
-    .then(({ user }) => {
-        dispatch(reciveSignup(user));
-        console.log(newUser.displayName);
-        let additions = {
+    .then(({user}) => {
+        // Set the authenticate user displayName
+        user.updateProfile({
             displayName: newUser.displayName
-        }
-        createUserProfileDocument(user, additions)
-        // firestore.collection('users').doc(user.uid).set({
-        //     displayName: newUser.displayName,
-        //     email: user.email,
-        //     phoneNumber: user.phoneNumber
-        // })    
+        })
+        .then(() => {
+            createUserProfileDocument(user);
+        })
+        .catch(error => {
+            dispatch(signupError(error))
+        });      
+        dispatch(reciveSignup(user));
     })
     .catch(error => {
         dispatch(signupError(error));
@@ -122,15 +122,11 @@ export const verifyAuth = () => dispatch => {
     dispatch(verifyRequest());
     auth
     .onAuthStateChanged(user => {
-      
+      console.log(user)
       if (user !== null) {
-        // const additions = {
-        //     displayName: user.displayName
-        // }
-        createUserProfileDocument(user, user.displayName);
+        createUserProfileDocument(user);
         dispatch(receiveLogin(user));
       }
-      //dispatch(createUserProfileDocument(user));
       dispatch(verifySuccess());
     });
 };
