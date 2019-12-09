@@ -1,31 +1,73 @@
 .header {
-    height: 60px;
+    height: 62px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     // margin-bottom: 25px;
     background-color: #2d2d2d;
+    color: #525050;
+    padding: 0 30px 0 10px;
   
     .logo-container {
       // height: 100%;
       // width: 50px;
-      padding: 9px;
+      border-right:1px solid #525050;     
+      
+      .app-logo {
+        height: 60px;
+        padding-right: 3px;
+      }
     }
   
     .options {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      // justify-content: flex-end;
+  
+      .option {
+        padding: 0 15px;
+        cursor: pointer;
+        color: white;
+        font-size: 14px;
+        letter-spacing: 1.5px;
+        line-height: 60px;
+        border-right:1px solid #525050;      
+      }
+    }
+
+    .user-options {
       width: 40%;
       height: 100%;
       display: flex;
       align-items: center;
+      position: relative;
       justify-content: flex-end;
+
+      a.option:hover + div{
+        display: block;
+      }
+
+      .hello-user-text {
+        font-weight: 700;
+        cursor: text;
+        color: black; 
+        padding-right: 15px;
+      }
   
       .option {
-        padding: 10px 15px;
+        padding: 5px 15px 0 15px;
         cursor: pointer;
         color: white;
+        font-size: 14px;
+        letter-spacing: 1.5px;
+        line-height: 60px;     
 
-        i {
-          color: yellow;
+        .icon {
+          font-size: 20px;
         }
       }
     }

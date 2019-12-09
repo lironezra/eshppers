@@ -2,7 +2,8 @@ import React from 'react';
 import Directory from '../../components/directory/directory.component';
 import SalesBanner from '../../components/sales-banner/sales-banner.component';
 
-import BackgroundImg from '../../assets/sales-banner.png';
+// import BackgroundImg from '../../assets/sales-banner.png';
+import BackgroundImg from '../../assets/mens-banner.jpg';
 import './homepage.styles.scss';
 
 

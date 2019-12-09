@@ -1,8 +1,20 @@
 .sign-up {
     display: flex;
     flex-direction: column;
-    width: 380px;
+    width: 440px;
     text-align: center;
+
+    span {
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .error-description {
+        color: red; 
+        font-weight: 700;
+        text-align: left;
+        margin: 10px 0px 0px 0px;
+    }
 }
 
 .title {

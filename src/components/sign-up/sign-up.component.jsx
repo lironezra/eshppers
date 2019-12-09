@@ -17,7 +17,8 @@ class SignUp extends Component {
             displayName: '',
             email: '',
             password: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            error: null
         }
     }
 
@@ -32,14 +33,11 @@ class SignUp extends Component {
         };
 
         if(newUser.password !== newUser.confirmPassword) {
-            alert("Password don't match!!!");
+            this.setState({error: 'Password do not match!'});
             return;
         }
 
         this.props.onSignup(newUser);
-        if(this.props.isAuthenticated) {
-            // this.props.history.push('/');
-        }
     }
 
     handleChange = (event) => {
@@ -49,12 +47,13 @@ class SignUp extends Component {
     }
 
     render() {
-        const { displayName, email, password, confirmPassword } = this.state;
+        const { displayName, email, password, confirmPassword, error} = this.state;
         return (
             <div className='sign-up'>
-                <h2 className='title'>I do not have a account</h2>
-                <span>Sign up with your email and password</span>
+                <h2 className='title'>I DO NOT HAVA A ACCOUNT</h2>
+                <span>SIGN UP WITH YOUR EMAIL</span>
                 <form className='sign-up-form' onSubmit={this.handleSubmit}>
+                    { error ? <p className='error-description'>{error}</p> : null}
                     <FormInput 
                         type='text'
                         name='displayName' 
@@ -75,7 +74,6 @@ class SignUp extends Component {
                         type='password'
                         name='password' 
                         value={password} 
-                        // value='111111' 
                         handleChange={this.handleChange}
                         label='Password'
                         required />
@@ -83,7 +81,6 @@ class SignUp extends Component {
                         type='password'
                         name='confirmPassword' 
                         value={confirmPassword} 
-                        // value='111111'
                         handleChange={this.handleChange}
                         label='Confirm Password'
                         required />                    

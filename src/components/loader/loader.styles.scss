@@ -2,10 +2,14 @@
 .loader {
     display:inline-block;
     width: 0;
-      height:0;
-      border-left: 20px solid transparent;
-      border-right: 20px solid transparent;
-      border-bottom: 20px solid #4183D7;
+    height:0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1000;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid #4183D7;
     border-top: 20px solid #F5AB35;
      -webkit-animation: loader 1.2s ease-in-out infinite alternate;
      animation: loader 1.2s ease-in-out infinite alternate;

@@ -42,6 +42,9 @@ const loginError = error => {
 };
 
 const requestLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('expirationDate');
+    localStorage.removeItem('uid');
     return {
       type: actionTypes.LOGOUT_REQUEST
     };
@@ -86,7 +89,7 @@ export const signupUser = (newUser) => dispatch => {
         })
         .catch(error => {
             dispatch(signupError(error))
-        });      
+        });   
         dispatch(reciveSignup(user));
     })
     .catch(error => {
@@ -100,6 +103,7 @@ export const loginUser = (email, password) => dispatch => {
     .signInWithEmailAndPassword(email,password)
     .then(user => {
         dispatch(receiveLogin(user));
+        dispatch(checkAuthTimeout(3600));
     })
     .catch(error => {
         dispatch(loginError(error));
@@ -122,13 +126,30 @@ export const verifyAuth = () => dispatch => {
     dispatch(verifyRequest());
     auth
     .onAuthStateChanged(user => {
-      console.log(user)
-      if (user !== null) {
         createUserProfileDocument(user);
-        dispatch(receiveLogin(user));
-      }
-      dispatch(verifySuccess());
+        if (user !== null) {
+            dispatch(receiveLogin(user));
+            dispatch(storeAuthenticatedUserDataToLocalStorage(user));
+            dispatch(checkAuthTimeout(3600))
+        }
+        dispatch(verifySuccess());
     });
 };
 
+export const checkAuthTimeout = (expiratioTime) => {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch(logoutUser());
+        }, expiratioTime * 1000);
+    };
+};
+
+const storeAuthenticatedUserDataToLocalStorage =  ({ refreshToken, uid }) => {
+    return dispatch => {
+        const expirationDate = new Date(new Date().getTime() + ( 3600 * 1000 ));
+        localStorage.setItem('token', refreshToken);
+        localStorage.setItem('expirationDate', expirationDate);
+        localStorage.setItem('uid', uid);
+    }
+};
 

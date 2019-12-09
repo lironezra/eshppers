@@ -9,7 +9,7 @@ const INITIAL_STATE = {
     loginError: null,
     logoutError: null,
     isAuthenticated: false,
-    user: {}
+    user: null
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -33,8 +33,7 @@ const reducer = (state = INITIAL_STATE, action) => {
 const signupRequest = (state, action) => {
     return {
         ...state,
-        isSigningup: true,
-        isAuthenticated: true
+        isSigningup: true
     }
 }
 
@@ -59,8 +58,7 @@ const signupFailuer = (state, action) => {
 const loginRequest = (state, action) => {
     return {
         ...state,
-        isLoggingIn: true,
-        isAuthenticated: true
+        isLoggingIn: true
     }
 };
 
@@ -95,7 +93,7 @@ const logoutSuccess = (state, action) => {
         ...state,
         isLoggingOut: false,
         isAuthenticated: false,
-        user: {}
+        user: null
     }
 };
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { auth } from '../../firebase/firebase.utils';
 
 import {loginUser}  from '../../redux/auth/auth.actions.js'
 
@@ -22,14 +21,6 @@ class SignIn extends Component {
         }
     }
 
-    componentDidMount() {
-        auth.onAuthStateChanged(user => {
-            if (user) {            
-                this.props.history.push('/');
-            }
-        });
-    }   
-
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.onLogin(this.state.email, this.state.password);
@@ -44,8 +35,8 @@ class SignIn extends Component {
     render() {
         return (
             <div className='sign-in'>
-                <h2 className='title'>I already have an account</h2>
-                <span>Sign in with your email and password</span>
+                <h2 className='title'>I ALREADY HAVA AN ACCOUNT</h2>
+                <span>SIGN IN WITH EMAIL</span>
                 
                 <form onSubmit={this.handleSubmit}>
                     <FormInput 
@@ -67,8 +58,9 @@ class SignIn extends Component {
                     <CustomButton type='submit'>SIGN IN</CustomButton>
                 </form>
                 <div className='social-login'>
-                    <h2 className='title'>Login</h2>
-                    <p>With your social media</p>
+                    <hr className='hr-with-text' />
+                    <h2 className='qa-or'>OR</h2>
+                    <h2 className='title'>SIGN IN WITH...</h2>
                     <CustomButton onClick={signInWithGoogle} authWith='google'>Google</CustomButton>
                     <CustomButton onClick={signInWithFacebook} authWith='facebook'>Facebook</CustomButton>
                     <CustomButton onClick={signInWithTwitter} authWith='twitter'>Twitter</CustomButton>

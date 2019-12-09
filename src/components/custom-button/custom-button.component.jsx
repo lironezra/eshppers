@@ -11,21 +11,21 @@ const CustomButton = ({ authWith, children, ...otherProps }) => {
         case 'google':
             button = 
             <button className="loginBtn loginBtn--google" {...otherProps}>
-                <span className="s-icon"><FontAwesomeIcon icon={faGoogle} /></span>
+                <span className="s-icon"><FontAwesomeIcon icon={faGoogle} color="#DD4B39"/></span>
                 {children}
             </button>
             break;
         case 'facebook':
             button =
                 <button className="loginBtn loginBtn--facebook" {...otherProps}>
-                    <span className="s-icon"><FontAwesomeIcon icon={faFacebookF} /></span>
+                    <span className="s-icon"><FontAwesomeIcon icon={faFacebookF} color="#4C69BA"/></span>
                     {children}
                 </button>
             break;
         case 'twitter':
             button =
                 <button className="loginBtn loginBtn--twitter" {...otherProps}>
-                    <span className="s-icon"><FontAwesomeIcon icon={faTwitter} /></span>
+                    <span className="s-icon"><FontAwesomeIcon icon={faTwitter} color="#00ACEE"/></span>
                     {children}
                 </button>
             break;

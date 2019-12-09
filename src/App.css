@@ -3,6 +3,12 @@
 }
 
 body {
+    color: #222222;
+    /* font-family: futura-pt,sans-serif; */
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: .4px;
     font-family: 'Open Sans Condensed', sans-serif;
     /* padding: 20px 40px; */
     padding: 0;
@@ -16,3 +22,31 @@ a {
     color: white;
     font-weight: bolder;
 }
+
+h2 {
+    font-size: 18px;
+}
+hr {
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    /* border-style: inset;
+    border-width: 1px; */
+}
+
+.cover-spin {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right:0;
+    top: 60px;
+    bottom:0;
+    background-color: rgba(255,255,255,0.7);
+    z-index:9999;
+    }
+

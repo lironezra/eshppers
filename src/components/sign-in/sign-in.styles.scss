@@ -1,8 +1,14 @@
 .sign-in {
-    width: 380px;
+    width: 440px;
     display: flex;
     flex-direction: column;
     text-align: center;
+    letter-spacing: 1.5px;
+
+    span {
+        font-size: 14px;
+        font-weight: 700;
+    }
 
     .title {
         margin: 10px 0;
@@ -10,5 +16,23 @@
 
     .social-login {
         display: block;
+        margin-top: 5px;
+
+        .hr-with-text {
+            padding: 0;
+            border: none;
+            border-top: 2px solid #eee;
+            text-align: center;
+            margin: 30px auto 0 auto;
+
+            &.qa-or {
+                font-style: normal;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 1.2;
+                text-transform: uppercase;
+                letter-spacing: 2.3px;
+            }
+        }
     }
 }
