@@ -8,6 +8,7 @@ const INITIAL_STATE = {
     signupError: null,
     loginError: null,
     logoutError: null,
+    //error: null,
     isAuthenticated: false,
     user: null
 };
@@ -33,7 +34,8 @@ const reducer = (state = INITIAL_STATE, action) => {
 const signupRequest = (state, action) => {
     return {
         ...state,
-        isSigningup: true
+        isSigningup: true,
+        signupError: null
     }
 }
 
@@ -58,7 +60,8 @@ const signupFailuer = (state, action) => {
 const loginRequest = (state, action) => {
     return {
         ...state,
-        isLoggingIn: true
+        isLoggingIn: true,
+        loginError: null
     }
 };
 

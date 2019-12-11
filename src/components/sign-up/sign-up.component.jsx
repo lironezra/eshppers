@@ -48,17 +48,18 @@ class SignUp extends Component {
 
     render() {
         const { displayName, email, password, confirmPassword, error} = this.state;
+        const { errorAPI } = this.props;
         return (
             <div className='sign-up'>
-                <h2 className='title'>I DO NOT HAVA A ACCOUNT</h2>
+                <h2 className='title'>DO NOT HAVE AN ACCOUNT</h2>
                 <span>SIGN UP WITH YOUR EMAIL</span>
                 <form className='sign-up-form' onSubmit={this.handleSubmit}>
                     { error ? <p className='error-description'>{error}</p> : null}
+                    {errorAPI ? <p className='error-description'>{errorAPI.message}</p> : null}
                     <FormInput 
                         type='text'
                         name='displayName' 
                         value={displayName} 
-                        // value='Liron Ezra' 
                         handleChange={this.handleChange}
                         label='Display Name'
                         required />                    
@@ -66,7 +67,6 @@ class SignUp extends Component {
                         type='email'
                         name='email' 
                         value={email} 
-                        // value='r@gmail.com' 
                         handleChange={this.handleChange}
                         label='Email'
                         required />                        
@@ -93,9 +93,7 @@ class SignUp extends Component {
 
 const mapStateToProps = state => {
     return {
-        isSigningup: state.auth.isSigningup,
-        signupError: state.auth.signupError,
-        isAuthenticated: state.auth.isAuthenticated
+        errorAPI: state.auth.signupError
     };
 };
 

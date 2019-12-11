@@ -2,8 +2,13 @@
     box-sizing: border-box;
 }
 
+html { 
+    height: 100%;
+}
+
 body {
     color: #222222;
+    height: 100%;
     /* font-family: futura-pt,sans-serif; */
     font-weight: 400;
     font-size: 16px;
@@ -38,7 +43,7 @@ hr {
     border-width: 1px; */
 }
 
-.cover-spin {
+/* .cover-spin {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -48,5 +53,5 @@ hr {
     bottom:0;
     background-color: rgba(255,255,255,0.7);
     z-index:9999;
-    }
+} */
 

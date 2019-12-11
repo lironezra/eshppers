@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { verifyAuth }  from './redux/auth/auth.actions';
 
 import ProtectedRoute from './components/protected-route/protected-route.component';
-import Loader from './components/loader/loader.component';
-
 
 import './App.css';
 
@@ -14,6 +12,8 @@ import ShopPage from './pages/shop/shop.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import Header from './components/header/header.component';
 import SavedItems from './pages/saved-items/saved-items.component';
+// import ErrorPage from './pages/error-pages/error-page.component.jsx';
+
 
 
 class App extends Component {
@@ -28,40 +28,42 @@ class App extends Component {
     const { isAuthenticated, isVerifying, loading, currentUser } = this.props;
     return (
       <div>
-        <Header/>
-        {
-          loading ?                 
-          <div className='cover-spin'>
-            <Loader />
-          </div> :        
-          <Switch>
-            <Route exact path='/' component={HomePage}/>
-            <Route 
-              exact 
-              path='/signin'
-              render={() => 
-                currentUser ? (
-                  <Redirect to='/' /> 
-                ) :
-                (<SignInAndSignUpPage />)              
-              } />
-
-            <ProtectedRoute
-              exact
-              path="/shop"
-              component={ShopPage}
-              isAuthenticated={isAuthenticated}
-              isVerifying={isVerifying}
-            />
-            <ProtectedRoute
-              exact
-              path="/like-items"
-              component={SavedItems}
-              isAuthenticated={isAuthenticated}
-              isVerifying={isVerifying}
-            />
-          </Switch>
-        }
+        <Header/>    
+        <Switch>
+          <Route exact path='/' component={HomePage}/>
+          <Route 
+            exact 
+            path='/signin'
+            render={() => 
+              currentUser ? (
+                <Redirect to='/' /> 
+              ) :
+              (<SignInAndSignUpPage loading={loading}/>)              
+            } />
+          <ProtectedRoute
+            exact
+            path="/shop"
+            component={ShopPage}
+            isAuthenticated={isAuthenticated}
+            isVerifying={isVerifying}
+          />
+          <ProtectedRoute
+            exact
+            path="/like-items"
+            component={SavedItems}
+            isAuthenticated={isAuthenticated}
+            isVerifying={isVerifying}
+          />
+          {/* <Route 
+            path='/error' 
+            render={() => error ? (
+              <Redirect to={{
+                pathname: '/error',
+                state: error
+              }} />
+          ) : null }/> */}
+        </Switch>
+        
       </div>
     );
   }
@@ -72,7 +74,8 @@ const mapStateToProps = state => {
     currentUser: state.auth.user,
     isAuthenticated: state.auth.isAuthenticated,
     isVerifying: state.auth.isVerifying,
-    loading: state.auth.isSigningup || state.auth.isLoggingIn ||  state.auth.isLoggingOut || state.auth.isVerifying
+    loading: state.auth.isSigningup || state.auth.isLoggingIn ||  state.auth.isLoggingOut || state.auth.isVerifying,
+    error: state.auth.error
   }
 };
 

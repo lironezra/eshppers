@@ -33,12 +33,14 @@ class SignIn extends Component {
     }
 
     render() {
+        const { errorAPI } = this.props;
+
         return (
             <div className='sign-in'>
-                <h2 className='title'>I ALREADY HAVA AN ACCOUNT</h2>
+                <h2 className='title'>ALREADY HAVE AN ACCOUNT</h2>
                 <span>SIGN IN WITH EMAIL</span>
-                
                 <form onSubmit={this.handleSubmit}>
+                    {errorAPI ? <p className='error-description'>{errorAPI.message}</p> : null}
                     <FormInput 
                         name='email' 
                         type='email'
@@ -72,10 +74,7 @@ class SignIn extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoggingIn: state.auth.isLoggingIn,
-        loginError: state.auth.loginError,
-        isAuthenticated: state.auth.isAuthenticated,
-        user: state.auth.user
+        errorAPI: state.auth.loginError
     };
 }
 

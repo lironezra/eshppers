@@ -1,20 +1,16 @@
 .header {
-    height: 62px;
+    height: 65px;
     width: 100%;
     display: flex;
-    // justify-content: space-between;
-    // margin-bottom: 25px;
     background-color: #2d2d2d;
     color: #525050;
-    padding: 0 30px 0 10px;
+    padding: 0 30px 0 25px;
   
     .logo-container {
-      // height: 100%;
-      // width: 50px;
       border-right:1px solid #525050;     
       
       .app-logo {
-        height: 60px;
+        height: 65px;
         padding-right: 3px;
       }
     }
@@ -25,50 +21,29 @@
       display: flex;
       align-items: center;
       position: relative;
-
-      // justify-content: flex-end;
   
       .option {
         padding: 0 15px;
+        height: 100%;
         cursor: pointer;
         color: white;
-        font-size: 14px;
-        letter-spacing: 1.5px;
+        font-size: 17px;
+        letter-spacing: 4px;
         line-height: 60px;
-        border-right:1px solid #525050;      
-      }
-    }
-
-    .user-options {
-      width: 40%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      position: relative;
-      justify-content: flex-end;
-
-      a.option:hover + div{
-        display: block;
-      }
-
-      .hello-user-text {
-        font-weight: 700;
-        cursor: text;
-        color: black; 
-        padding-right: 15px;
-      }
-  
-      .option {
-        padding: 5px 15px 0 15px;
-        cursor: pointer;
-        color: white;
-        font-size: 14px;
-        letter-spacing: 1.5px;
-        line-height: 60px;     
-
-        .icon {
-          font-size: 20px;
+        border-right:1px solid #525050;   
+        
+        &:hover {
+          background-color: #474747;
         }
       }
     }
+
+  .user-options {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: flex-end;
   }
+}
