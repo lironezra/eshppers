@@ -2,13 +2,14 @@
     position: absolute;
     width: 320px;
     height: 200px;
+    // display: none;
     display: flex;
     flex-direction: column;
     // padding: 20px;
     border: 1px solid #dddddd;
     background-color: white;
     top: 65px;
-    right: 120px;
+    right: 91px;
     z-index: 5;
 
     .my-account-menu-items {

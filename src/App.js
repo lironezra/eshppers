@@ -12,9 +12,7 @@ import ShopPage from './pages/shop/shop.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import Header from './components/header/header.component';
 import SavedItems from './pages/saved-items/saved-items.component';
-// import ErrorPage from './pages/error-pages/error-page.component.jsx';
-
-
+import ErrorPage from './pages/error-pages/error-page.component';
 
 class App extends Component {
 
@@ -50,20 +48,25 @@ class App extends Component {
           <ProtectedRoute
             exact
             path="/like-items"
+            component={SavedItems}//MyItemPage
+            isAuthenticated={isAuthenticated}
+            isVerifying={isVerifying}
+          />
+          <ProtectedRoute
+            exact
+            path="/cart"
             component={SavedItems}
             isAuthenticated={isAuthenticated}
             isVerifying={isVerifying}
           />
-          {/* <Route 
-            path='/error' 
-            render={() => error ? (
-              <Redirect to={{
-                pathname: '/error',
-                state: error
-              }} />
-          ) : null }/> */}
-        </Switch>
-        
+            <ProtectedRoute
+            exact
+            path="/error"
+            component={ErrorPage}
+            isAuthenticated={isAuthenticated}
+            isVerifying={isVerifying}
+            />
+        </Switch>        
       </div>
     );
   }

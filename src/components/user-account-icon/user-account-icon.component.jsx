@@ -1,27 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { connect } from 'react-redux';
-import { toogleMyAccountHiddn } from '../../redux/my-account/my-account.acions';
-
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 import './user-account-icon.styles.scss';
 
-const UserAccountIcon = ({ onToogleMyAccountHiddn }) => {
+const UserAccountIcon = () => {
     return (
-        <Link className='option' onClick={onToogleMyAccountHiddn} to='#'>
+        <Link 
+            className='option' 
+            to='#'>
             <FontAwesomeIcon className='icon' icon={faUser} />
         </Link>
     );
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onToogleMyAccountHiddn: () => dispatch(toogleMyAccountHiddn())
-    }
-}
-
-export default connect(null, mapDispatchToProps)(UserAccountIcon);
+export default UserAccountIcon;

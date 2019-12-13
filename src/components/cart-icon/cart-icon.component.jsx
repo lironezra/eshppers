@@ -1,27 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import { toggleCartHidden } from '../../redux/cart/cart.actions';
+import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 
-
 import './cart-icon.styles.scss';
 
-const CartIcon = ({ onToggleCartHidden }) => {
+const CartIcon = ({ isAuthenticated }) => {
+    let cartIconContent = 
+        <Link
+            to={'/cart'}
+
+            //to={isAuthenticated ? '/cart' : '/error'}
+            className='cart-icon' >  
+                <FontAwesomeIcon className='icon' icon={faShoppingBag} />
+                <span className='item-count'>3</span>
+        </Link>;
+    
     return (
-        <div className='cart-icon' onClick={onToggleCartHidden}> 
-            <FontAwesomeIcon className='icon' icon={faShoppingBag}/>
-            <span className='item-count'>3</span>
-        </div>
+        cartIconContent
     );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
     return {
-        onToggleCartHidden: () => dispatch(toggleCartHidden())
+        isAuthenticated: state.auth.isAuthenticated
     };
-};
+};  
 
-export default connect(null, mapDispatchToProps)(CartIcon);
+export default connect(mapStateToProps)(CartIcon);

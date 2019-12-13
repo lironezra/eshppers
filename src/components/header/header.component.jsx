@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -11,44 +11,70 @@ import MyAccountDropDown from '../my-account-dropdown/my-account-dropdown.compon
 
 import './header.styles.scss';
 
-const Header = ({ hidden, myAccountHidden }) => {
-    return (
-        <div className='header'>
-            <Link className='logo-container' to='/'>
-                <img className='app-logo' src={AppLogo} alt='app=logo' />
-            </Link>
-            <div className='options'>
-                <Link className='option' to='shop'>
-                    SHOP                    
-                </Link>     
-                <Link className='option' to='women'>
-                    WOMEN                   
-                </Link>   
-                <Link className='option' to='men'>
-                    MEN                   
-                </Link>       
+
+class Header extends Component  {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showMyAccountMenu: false,
+            showCartDropdown: false
+        }
+    }
+    
+    toggleMyAccountMenu = (hide) => {
+        this.setState({ showMyAccountMenu: hide })
+    }
+
+    toggleCartDropdown = (hide) => {
+        this.setState({ showCartDropdown: hide })
+    }
+
+    render () {
+        return (
+            <div className='header'>
+                <Link className='logo-container' to='/'>
+                    <img className='app-logo' src={AppLogo} alt='app=logo' />
+                </Link>
+                <div className='options'>
+                    <Link className='option' to='shop'>
+                        SHOP                    
+                    </Link>     
+                    <Link className='option' to='women'>
+                        WOMEN                   
+                    </Link>   
+                    <Link className='option' to='men'>
+                        MEN                   
+                    </Link>       
+                </div>
+                <div className='user-options'>
+                    <div style={{marginTop: '8px'}} className='my-account-option' 
+                        onMouseEnter={() => this.toggleMyAccountMenu(true)}
+                        onMouseLeave={() => this.toggleMyAccountMenu(false)} >
+                        <UserAccountIcon />
+                        {
+                            this.state.showMyAccountMenu ? <MyAccountDropDown /> : null   
+                        }                  
+                    </div>
+                    <SavedItemsIcon />
+                    <div style={{marginTop: '8px'}} className='cart-option' 
+                        onMouseEnter={() => this.toggleCartDropdown(true)}
+                        onMouseLeave={() => this.toggleCartDropdown(false)} >
+                        <CartIcon />
+                        {
+                            this.state.showCartDropdown && this.props.isAuthenticated ? <CartDropdown />  : null   
+                        }                  
+                    </div>
+
+                </div>
             </div>
-            <div className='user-options'>
-                <UserAccountIcon />
-                <SavedItemsIcon />
-                <CartIcon />
-            </div>
-            {
-                hidden ? null : 
-                <CartDropdown />
-            }
-            {
-                myAccountHidden ? null : 
-                <MyAccountDropDown />
-            }
-        </div>
-    );
+        );
+    }   
 };
 
-const mapStateToProps = ({ cart: { hidden }, myAccount: { myAccountHidden } }) => {
+const mapStateToProps = (state) => {
     return {
-        hidden,
-        myAccountHidden
+        isAuthenticated: state.auth.isAuthenticated
     };
 };
 

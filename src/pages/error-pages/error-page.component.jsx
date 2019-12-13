@@ -1,13 +1,26 @@
 import React from 'react';
 import './error-page.styles.scss';
  
-const ErrorPage = ({ errorCode, errorMsg }) => {
+const ErrorPage = ({ errorCode, errorMsg, location }) => {
+    console.log(location.state.from.pathname);
+    const errorFrom = location.state.from.pathname;
+    switch (errorFrom) {
+        case '/cart':
+            return (
+                <div>
+                    <p className='error'>PLEASE LOG IN FOR WATCH YOUR CART!!!</p>
+                </div>
+            );    
+        default:
+            break;
+    }
 
     return (
         <div className='error-container'>
-            <p className='error'>SOMETHING WENT WRONG!!!</p>
+            {errorFrom}
+            {/* <p className='error'>SOMETHING WENT WRONG!!!</p>
             <p className='error'>ERROR CODE: {errorCode}</p>
-            <p className='error'>{errorMsg}</p>
+            <p className='error'>{errorMsg}</p> */}
         </div>
     )
 }

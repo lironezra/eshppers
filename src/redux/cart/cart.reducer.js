@@ -16,7 +16,7 @@ const reducer = (state = INITIAL_STATE, action) => {
 const toggleCartHidden = (state, action) => {
     return {
         ...state,
-        hidden: !state.hidden
+        hidden: action.hidden
     }
 };
 

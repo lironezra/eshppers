@@ -8,7 +8,7 @@ const INITIAL_STATE = {
     signupError: null,
     loginError: null,
     logoutError: null,
-    //error: null,
+    verifyingError: null,
     isAuthenticated: false,
     user: null
 };
@@ -112,7 +112,7 @@ const verifyRequest = (state, action) => {
     return {
         ...state,
         isVerifying: true,
-        verifyingError: false
+        verifyingError: action.error
     }
 };
 
