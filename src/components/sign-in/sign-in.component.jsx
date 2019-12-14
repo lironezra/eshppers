@@ -57,15 +57,15 @@ class SignIn extends Component {
                         label='password'
                         required />
 
-                    <CustomButton type='submit'>SIGN IN</CustomButton>
+                    <CustomButton btnType='regular' type='submit'>SIGN IN</CustomButton>
                 </form>
                 <div className='social-login'>
                     <hr className='hr-with-text' />
                     <h2 className='qa-or'>OR</h2>
                     <h2 className='title'>SIGN IN WITH...</h2>
-                    <CustomButton onClick={signInWithGoogle} authWith='google'>Google</CustomButton>
-                    <CustomButton onClick={signInWithFacebook} authWith='facebook'>Facebook</CustomButton>
-                    <CustomButton onClick={signInWithTwitter} authWith='twitter'>Twitter</CustomButton>
+                    <CustomButton onClick={signInWithGoogle} btnType='google-loggin'>Google</CustomButton>
+                    <CustomButton onClick={signInWithFacebook} btnType='facebook-login'>Facebook</CustomButton>
+                    <CustomButton onClick={signInWithTwitter} btnType='twitter-login'>Twitter</CustomButton>
                 </div>
             </div>
         );

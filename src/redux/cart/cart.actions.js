@@ -6,3 +6,10 @@ export const toggleCartHidden = hidden => {
         hidden: hidden
     }
 };
+
+export const addItem = item => {
+    return {
+        type:actionTypes.ADD_ITEM,
+        item: item
+    };
+};

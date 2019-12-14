@@ -11,7 +11,7 @@ const CartDropDown = () => {
                 <span><strong>My Bag</strong>,  1 item</span>
             </div>
             <div className='cart-items' />
-            <CustomButton>GO TO CHECKOUT</CustomButton>
+            <CustomButton btnType='regular'>GO TO CHECKOUT</CustomButton>
         </div>
     );
 };
