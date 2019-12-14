@@ -59,13 +59,15 @@ class App extends Component {
             isAuthenticated={isAuthenticated}
             isVerifying={isVerifying}
           />
-            <ProtectedRoute
+          <Route exact path='/error' component={ErrorPage}/>
+
+            {/* <ProtectedRoute
             exact
             path="/error"
             component={ErrorPage}
             isAuthenticated={isAuthenticated}
             isVerifying={isVerifying}
-            />
+            /> */}
         </Switch>        
       </div>
     );

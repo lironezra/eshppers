@@ -11,8 +11,6 @@ const CartIcon = ({ isAuthenticated }) => {
     let cartIconContent = 
         <Link
             to={'/cart'}
-
-            //to={isAuthenticated ? '/cart' : '/error'}
             className='cart-icon' >  
                 <FontAwesomeIcon className='icon' icon={faShoppingBag} />
                 <span className='item-count'>3</span>

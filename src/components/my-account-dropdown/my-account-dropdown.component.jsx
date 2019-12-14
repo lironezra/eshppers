@@ -4,10 +4,7 @@ import { connect } from 'react-redux';
 
 import { logoutUser }  from '../../redux/auth/auth.actions.js'
 
-import ContactIcon from '../contact-icon/contact-icon.component';
-import MyOrdersIcon from '../my-orders-icon/my-orders-icon.component';
-import MyAccountIcon from '../my-acconu-icon/my-acconu-icon.component';
-
+import CustomIcon from '../custom-icon/custom-icon.component';
 
 import './my-account-dropdown.styles.scss';
 
@@ -31,9 +28,11 @@ const MyAccountDropdown = ({isAuthenticated, onLogout, currentUser}) => {
                     )
                 }
                 </div>
-                <MyAccountIcon />
-                <MyOrdersIcon />    
-                <ContactIcon />
+                <div className='menu-options'>
+                    <CustomIcon type='user-accoun' name='My Account' />
+                    <CustomIcon type='my-orders' name='My Orders' />
+                    <CustomIcon type='contact-preferences' name='Contact' />
+                </div>
             </div>
         </div>
     );

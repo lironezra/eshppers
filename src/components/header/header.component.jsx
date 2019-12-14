@@ -11,7 +11,6 @@ import MyAccountDropDown from '../my-account-dropdown/my-account-dropdown.compon
 
 import './header.styles.scss';
 
-
 class Header extends Component  {
     constructor(props) {
         super(props);
@@ -65,7 +64,6 @@ class Header extends Component  {
                             this.state.showCartDropdown && this.props.isAuthenticated ? <CartDropdown />  : null   
                         }                  
                     </div>
-
                 </div>
             </div>
         );

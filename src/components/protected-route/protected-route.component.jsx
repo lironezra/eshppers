@@ -16,7 +16,7 @@ const ProtectedRoute = ({
                 if (isAuthenticated) {
                     return <Component {...props} />
                 } else {
-                    if (props.location.pathname === '/cart') {                        
+                    if (props.location.pathname === '/cart') {                       
                         return (
                             <Redirect
                             to={{

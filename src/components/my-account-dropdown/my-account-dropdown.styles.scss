@@ -22,27 +22,30 @@
         .my-accout-dropdown-header {
             background-color: #eee;
             padding: 15px;
-        }
 
-        a {
-            color: #2d2d2d;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            font-weight: normal;
-            font-size: 15px;
-            border-bottom: 1.5px solid #ddd;
-            margin-left: 11px;
-            letter-spacing: 0.8px;
-    
-            &:hover {
-                color: #0770cf;
+            a {
+                color: #2d2d2d;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+                font-weight: normal;
+                font-size: 15px;
+                border-bottom: 1.5px solid #ddd;
+                margin-left: 11px;
+                letter-spacing: 0.8px;
+        
+                &:hover {
+                    color: #0770cf;
+                }
             }
-        }
-    
-        a:last-child {
-            border-bottom: none;
+
+            .hello-user-text {
+                font-weight: 700;
+                cursor: text;
+                color: #2d2d2d; 
+                padding-right: 15px;
+            }
         }
 
         &:before {
@@ -58,13 +61,6 @@
             transition-delay: .25s;
             z-index: 1;
         }
-
-        .hello-user-text {
-            font-weight: 700;
-            cursor: text;
-            color: #2d2d2d; 
-            padding-right: 15px;
-          }
     }
   
     button {
