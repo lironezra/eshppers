@@ -6,11 +6,12 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 import './user-account-icon.styles.scss';
 
-const UserAccountIcon = () => {
+const UserAccountIcon = (props) => {
     return (
-        <Link 
+        <Link
             className='option' 
-            to='#'>
+            to='#'
+            {...props}>
             <FontAwesomeIcon className='icon' icon={faUser} />
         </Link>
     );

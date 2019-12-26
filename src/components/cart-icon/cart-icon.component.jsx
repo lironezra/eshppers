@@ -7,15 +7,14 @@ import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 
 import './cart-icon.styles.scss';
 
-const CartIcon = ({ isAuthenticated }) => {
+const CartIcon = ({ cartItems, totalCartItemsQuantity }) => {
     let cartIconContent = 
         <Link
             to={'/cart'}
             className='cart-icon' >  
                 <FontAwesomeIcon className='icon' icon={faShoppingBag} />
-                <span className='item-count'>3</span>
+                <span className='item-count'>{totalCartItemsQuantity}</span>
         </Link>;
-    
     return (
         cartIconContent
     );
@@ -23,7 +22,8 @@ const CartIcon = ({ isAuthenticated }) => {
 
 const mapStateToProps = state => {
     return {
-        isAuthenticated: state.auth.isAuthenticated
+        cartItems: state.cart.cartItems,
+        totalCartItemsQuantity: state.cart.totalCartItemsQuantity
     };
 };  
 

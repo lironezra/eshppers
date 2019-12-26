@@ -13,7 +13,6 @@
     .cart-dropdown-header {
         background-color:  #eee;
         padding: 15px;
-
     }
   
     .cart-items {
@@ -21,6 +20,8 @@
       display: flex;
       flex-direction: column;
       overflow: scroll;
+      overflow-x: hidden;
+      padding: 10px;
     }
 
     &:before {
@@ -36,9 +37,27 @@
         transition-delay: .25s;
         z-index: 5;
     }
-  
-    button {
-      margin-top: auto;
+    
+    .btn-container {
+      text-align: center;
+      background-color:  #eee;;
+
+      button {
+        width: 40%;
+        background-color: #00aa5b;
+        margin: 8px 0;
+      }
     }
+
+    .sub-total-price {
+      background-color:  #f8f8f8;
+      height: 75px;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      align-items: center;
+      box-shadow: 0 -2px 3px 0 hsla(0,0%,60%,.2);
+  }
+
 }
   

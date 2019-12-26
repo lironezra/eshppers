@@ -17,7 +17,7 @@ class Header extends Component  {
 
         this.state = {
             showMyAccountMenu: false,
-            showCartDropdown: false
+            showCartDropdown: true
         }
     }
     
@@ -26,7 +26,7 @@ class Header extends Component  {
     }
 
     toggleCartDropdown = (hide) => {
-        this.setState({ showCartDropdown: hide })
+        //this.setState({ showCartDropdown: hide })
     }
 
     render () {
