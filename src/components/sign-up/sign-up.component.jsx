@@ -6,6 +6,7 @@ import  { signupUser } from '../../redux/auth/auth.actions';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
+import ErrorBox from '../error-box/error-box.component';
 
 import './sign-up.styles.scss';
 
@@ -54,8 +55,10 @@ class SignUp extends Component {
                 <h2 className='title'>DO NOT HAVE AN ACCOUNT</h2>
                 <span>SIGN UP WITH YOUR EMAIL</span>
                 <form className='sign-up-form' onSubmit={this.handleSubmit}>
-                    { error ? <p className='error-description'>{error}</p> : null}
-                    {errorAPI ? <p className='error-description'>{errorAPI.message}</p> : null}
+                    {/* { error ? <p className='error-description'>{error}</p> : null}
+                    {errorAPI ? <p className='error-description'>{errorAPI.message}</p> : null} */}
+                    { error ? <ErrorBox>{error}</ErrorBox> : null }
+                    { errorAPI ? <ErrorBox>{errorAPI.message}</ErrorBox> : null }
                     <FormInput 
                         type='text'
                         name='displayName' 

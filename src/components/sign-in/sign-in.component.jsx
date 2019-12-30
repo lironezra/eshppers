@@ -6,6 +6,7 @@ import {loginUser}  from '../../redux/auth/auth.actions.js'
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
+import ErrorBox from '../error-box/error-box.component';
 
 import { signInWithGoogle, signInWithFacebook, signInWithTwitter } from '../../firebase/firebase.utils';
 
@@ -40,7 +41,9 @@ class SignIn extends Component {
                 <h2 className='title'>ALREADY HAVE AN ACCOUNT</h2>
                 <span>SIGN IN WITH EMAIL</span>
                 <form onSubmit={this.handleSubmit}>
-                    {errorAPI ? <p className='error-description'>{errorAPI.message}</p> : null}
+                {/* {errorAPI ? <p className='error-description'>{errorAPI.message}</p> : null} */}
+
+                    {errorAPI ? <ErrorBox>{errorAPI.message}</ErrorBox> : null}
                     <FormInput 
                         name='email' 
                         type='email'

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import AppLogo from '../../assets/app-logo.png';
 import CartIcon from '../cart-icon/cart-icon.component';
@@ -17,7 +17,7 @@ class Header extends Component  {
 
         this.state = {
             showMyAccountMenu: false,
-            showCartDropdown: true
+            showCartDropdown: false
         }
     }
     
@@ -26,7 +26,7 @@ class Header extends Component  {
     }
 
     toggleCartDropdown = (hide) => {
-        //this.setState({ showCartDropdown: hide })
+        this.setState({ showCartDropdown: hide })
     }
 
     render () {
@@ -36,15 +36,15 @@ class Header extends Component  {
                     <img className='app-logo' src={AppLogo} alt='app=logo' />
                 </Link>
                 <div className='options'>
-                    <Link className='option' to='shop'>
+                    <NavLink  className='option' activeClassName='is-active' to='/shop'>
                         SHOP                    
-                    </Link>     
-                    <Link className='option' to='women'>
+                    </NavLink>     
+                    <NavLink className='option' activeClassName='is-active' to='/women'>
                         WOMEN                   
-                    </Link>   
-                    <Link className='option' to='men'>
+                    </NavLink>   
+                    <NavLink className='option' activeClassName='is-active' to='/men'>
                         MEN                   
-                    </Link>       
+                    </NavLink> 
                 </div>
                 <div className='user-options'>
                     <div style={{marginTop: '8px'}} className='my-account-option' 

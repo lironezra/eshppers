@@ -4,7 +4,6 @@ import './form-input.styles.scss';
 
 const FormInput = React.memo(
     ({ handleChange, label, ...otherProps}) => {
-        console.log('FormInput render')
         return (
             <div className='group'>
                 <input 

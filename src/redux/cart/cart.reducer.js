@@ -35,7 +35,7 @@ const removeItem = (state, action) => {
         ...state,
         cartItems: removeItemFromCart(state.cartItems, action.item),// change this method
         totalCartItemsQuantity: state.totalCartItemsQuantity - action.item.quantity,
-        totalPrice: state.totalPrice - (action.item.quantity * action.item.price)
+        totalPrice: state.totalPrice - (action.item.quantity * action.item.price) 
     };
 };
 

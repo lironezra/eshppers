@@ -10,7 +10,7 @@ const UserAccountIcon = (props) => {
     return (
         <Link
             className='option' 
-            to='#'
+            to='/'
             {...props}>
             <FontAwesomeIcon className='icon' icon={faUser} />
         </Link>

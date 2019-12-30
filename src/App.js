@@ -13,6 +13,7 @@ import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up
 import Header from './components/header/header.component';
 import SavedItems from './pages/saved-items/saved-items.component';
 import ErrorPage from './pages/error-pages/error-page.component';
+import ProductCard from './components/product-card/product-card.component';
 
 class App extends Component {
 
@@ -59,8 +60,15 @@ class App extends Component {
             isAuthenticated={isAuthenticated}
             isVerifying={isVerifying}
           />
+          <ProtectedRoute
+            exact
+            path="/product-item/:productName/:productId"
+            component={ProductCard}
+            isAuthenticated={isAuthenticated}
+            isVerifying={isVerifying}
+          />
           <Route exact path='/error' component={ErrorPage}/>
-
+          {/* <Route exact path='/product-item/:productName/:productId' component={ProductCard}/> */}
             {/* <ProtectedRoute
             exact
             path="/error"

@@ -1,0 +1,90 @@
+.product-card {
+    display: flex;
+    flex-direction: row;
+    margin: 30px 150px;
+    justify-content: center;
+    padding: 5px;
+
+    .product-photo {
+        margin:  25px;
+
+        img {
+            height: 600px;
+            width: auto;
+        }
+    }
+
+    .product-description {
+        margin:  25px;
+    
+        .name {
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 0;
+        }
+
+        .price {
+            letter-spacing: 2px;
+            font-size: 26px;
+            font-weight: 700;
+            color: rgb(104, 104, 103);
+            margin-top: 0px;
+        }
+
+        .description {
+            margin: 0;
+        }
+
+        .product-buttons {
+            align-items: center;
+            .add-to-cart {
+                width: 240px;
+                height: 43px;
+                margin-right: 20px;
+                background-color: #00aa5b;
+                border: none;
+                color: white;
+                font-weight: 700;
+                font-family: 'Open Sans Condensed', sans-serif;
+                letter-spacing: 1.5px;
+                font-size: 14px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #04884a;
+                }
+            }
+
+            .save-for-later {
+                border-radius: 50%;
+                height: 42px;
+                width: 42px;
+                //  color: transparent;
+                color: #5a5959;
+                border: none;
+                background-color:#eee;
+                padding: 10px 8px 8px;
+                cursor: pointer;
+                font-size: larger;
+                outline: none; 
+
+                .icon-heart:hover {
+                  color:rgb(243, 69, 26);
+                  transition: 0.1s;
+                  font-weight: 900;
+                }
+              }
+        }
+
+        .size-section {
+            margin-bottom: 20px;
+
+            .size-name {
+                font-weight: 700;
+                font-size: 12px;
+                letter-spacing: 1px;
+            }
+        
+        }
+    }
+}

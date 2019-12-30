@@ -13,8 +13,8 @@ const CartDropDown = ({ cartItems, totalCartItemsQuantity, totalPrice }) => {
                 <span><strong>My Bag</strong>, {totalCartItemsQuantity} items</span>
             </div>
             <div className='cart-items'>
-                {cartItems.map(cartItem => (
-                    <CartItem key={cartItem.id} item={cartItem} />
+                {cartItems.map((cartItem, index) => (
+                    <CartItem key={index} item={cartItem} />
                 ))}
             </div>
             <div className='sub-total-price'>

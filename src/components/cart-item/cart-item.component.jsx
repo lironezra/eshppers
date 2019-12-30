@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { removeItem } from '../../redux/cart/cart.actions'
@@ -8,15 +9,26 @@ import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 
 import './cart-item.styles.scss';
 
-const CartItem = ({ item, removeItem }) => (
+const CartItem = ({ item, item: { id, imageUrl, price, name, size, quantity}, removeItem }) => (
     <>
         <div className='cart-item'>
-            <img src={item.imageUrl} alt='item'/>
+            <img src={imageUrl} alt='item'/>
             <div className='item-details'>
-                <span className='price'>{item.price.toFixed(2)}$</span>
-                <span className='name'>{item.name}</span>
-                {/* <span className='size'>S</span> */}
-                <span className='quantity'>Qty: {item.quantity}</span>
+                <Link to={{
+                        pathname: `/product-item/${name}/${id}`,
+                        state: {
+                            item
+                        }   
+                    }} 
+                    className='item-link'>
+                    <span className='price'>{price.toFixed(2)}$</span>
+                    <br />
+                    <span className='name'>{name}</span>
+                    <br />
+                    <span className='size'>{size}</span>
+                    <br />
+                    <span className='quantity'>Qty: {quantity}</span>
+                </Link>
                 <button className='remove-item' onClick={() => removeItem(item)}>
                     <FontAwesomeIcon icon={faTrashAlt} className='icon' />
                 </button>

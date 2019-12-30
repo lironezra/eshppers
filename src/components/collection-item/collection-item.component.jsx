@@ -1,8 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import CustomButton from '../custom-button/custom-button.component';
-import { addItem } from '../../redux/cart/cart.actions';
+import { Link } from 'react-router-dom';
 
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,29 +10,30 @@ const CollectionItem = ({ item, addItem }) => {
     const { name, price, imageUrl } = item;
 
     return (
-        <article className='collection-item'>
-            <div
-                className='image'
-                style={{
-                    backgroundImage: `url(${imageUrl})`
-                }}
-            />
-            <div className='collection-footer'>
-                <p className='name'>{name}</p>
-                <span className='price'>${price}</span>
-            </div>
-            <CustomButton onClick={() => addItem(item)} btnType='inverted'>Add to Cart</CustomButton>
-            <button type="button" className="save-for-later">
-                <span><FontAwesomeIcon className='icon-heart' icon={faHeart} /></span>
-            </button>
-        </article>
+        <Link to={{
+            pathname: `/product-item/${item.name}/${item.id}`,
+            state: {
+                item
+            }
+        }} >
+            <article className='collection-item'>
+                <div
+                    className='image'
+                    style={{
+                        backgroundImage: `url(${imageUrl})`
+                    }}
+                />
+                <div className='collection-footer'>
+                    <p className='name'>{name}</p>
+                    <span className='price'>${price}</span>
+                </div>
+                <button type="button" className="save-for-later">
+                    <span><FontAwesomeIcon className='icon-heart' icon={faHeart} /></span>
+                </button>
+            </article>
+        </Link>
+
     );
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        addItem: item => dispatch(addItem(item))
-    }
-}
-
-export default connect(null, mapDispatchToProps)(CollectionItem);
+export default CollectionItem;

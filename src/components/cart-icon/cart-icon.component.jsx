@@ -13,7 +13,7 @@ const CartIcon = ({ cartItems, totalCartItemsQuantity }) => {
             to={'/cart'}
             className='cart-icon' >  
                 <FontAwesomeIcon className='icon' icon={faShoppingBag} />
-                <span className='item-count'>{totalCartItemsQuantity}</span>
+                <span className='item-count'>{totalCartItemsQuantity !== 0 ? totalCartItemsQuantity : null}</span>
         </Link>;
     return (
         cartIconContent

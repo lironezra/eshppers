@@ -1,5 +1,6 @@
 .mu-section {
     width: 100%;
+    height: 400px;
     text-align: center;
     background: transparent;
     position: relative;
@@ -12,10 +13,11 @@
     margin-bottom: 3%;
 
     .sales-banner {
-        padding: 24px 0 8px;        
+        padding: 1px 0 8px;        
         background-repeat: no-repeat;
         background-position: top center;
         background-size: cover;       
+        font-family: 'Luckiest Guy', cursive;
 
         .banner-background {
             position: absolute;
