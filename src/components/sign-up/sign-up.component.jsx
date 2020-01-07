@@ -55,8 +55,6 @@ class SignUp extends Component {
                 <h2 className='title'>DO NOT HAVE AN ACCOUNT</h2>
                 <span>SIGN UP WITH YOUR EMAIL</span>
                 <form className='sign-up-form' onSubmit={this.handleSubmit}>
-                    {/* { error ? <p className='error-description'>{error}</p> : null}
-                    {errorAPI ? <p className='error-description'>{errorAPI.message}</p> : null} */}
                     { error ? <ErrorBox>{error}</ErrorBox> : null }
                     { errorAPI ? <ErrorBox>{errorAPI.message}</ErrorBox> : null }
                     <FormInput 

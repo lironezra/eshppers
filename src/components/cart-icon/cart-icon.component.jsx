@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 
+
 import './cart-icon.styles.scss';
 
-const CartIcon = ({ cartItems, totalCartItemsQuantity }) => {
+const CartIcon = ({ totalCartItemsQuantity }) => {
     let cartIconContent = 
         <Link
             to={'/cart'}
@@ -21,8 +22,7 @@ const CartIcon = ({ cartItems, totalCartItemsQuantity }) => {
 };
 
 const mapStateToProps = state => {
-    return {
-        cartItems: state.cart.cartItems,
+    return {    
         totalCartItemsQuantity: state.cart.totalCartItemsQuantity
     };
 };  

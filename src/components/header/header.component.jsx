@@ -18,6 +18,8 @@ class Header extends Component  {
         this.state = {
             showMyAccountMenu: false,
             showCartDropdown: false
+            // showMyAccountMenu: true,
+            // showCartDropdown: true
         }
     }
     
@@ -47,7 +49,7 @@ class Header extends Component  {
                     </NavLink> 
                 </div>
                 <div className='user-options'>
-                    <div style={{marginTop: '8px'}} className='my-account-option' 
+                    <div className='my-account-option' 
                         onMouseEnter={() => this.toggleMyAccountMenu(true)}
                         onMouseLeave={() => this.toggleMyAccountMenu(false)} >
                         <UserAccountIcon />
@@ -55,8 +57,10 @@ class Header extends Component  {
                             this.state.showMyAccountMenu ? <MyAccountDropDown /> : null   
                         }                  
                     </div>
-                    <SavedItemsIcon />
-                    <div style={{marginTop: '8px'}} className='cart-option' 
+                    <div>
+                        <SavedItemsIcon />
+                    </div>
+                    <div className='cart-option' 
                         onMouseEnter={() => this.toggleCartDropdown(true)}
                         onMouseLeave={() => this.toggleCartDropdown(false)} >
                         <CartIcon />

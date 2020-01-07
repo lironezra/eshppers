@@ -1,0 +1,49 @@
+.link-item {
+    text-decoration: none;
+    display: block; 
+
+    .carousel-image {
+        width: auto;
+        height: 255px;
+        position: relative;
+        display: block;
+    }
+
+    .label-wrap {
+        color: #000000;
+        background-color: #FFFFFF;
+        overflow: hidden;
+        display: block;
+        height: 40px;
+        width: 170px;
+        position: relative;
+
+        .label-text {
+            font-size: 13px;
+            line-height: 42px;
+            padding: 8px 7px;
+            font-family: 'Open Sans Condensed', sans-serif;
+            font-weight: 700;
+        }
+    }
+}
+
+.container-with-dots {
+    width: 65%;
+    height: auto;
+    margin: 0 auto;
+
+    li {
+        transition: transform .2s !important;
+        padding: 6px !important;
+        // height: 60% !important;
+
+        &:hover {
+            transform: scale(1.03) !important;
+        }
+    }
+}
+
+
+
+

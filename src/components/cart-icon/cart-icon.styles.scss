@@ -2,19 +2,16 @@
     padding: 12px 18px 0 15px;
     cursor: pointer;
     color: white;
-    font-size: 12px;
+    font-size: 20px;
     letter-spacing: 1.5px;
     line-height: 60px;     
-
-    .icon {
-        font-size: 25px;
-    }
 
     .item-count {
         position: absolute;;
         color: #2d2d2d;
-        right: 25px;
-        font-size: 12px;
+        right: 23px;
+        top: 0.5px;
+        font-size: 10px;
         font-weight: 700;
     }
 }

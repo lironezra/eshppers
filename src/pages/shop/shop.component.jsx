@@ -13,6 +13,7 @@ class Shop extends Component {
         }
 
     }
+
     render() {
         const {collections} = this.state;
         return (

@@ -34,7 +34,7 @@ const ProductCard = ({location, addItem}) => {
     return (
         <div className='product-card'>
             <div className='product-photo'>
-                <img src={imageUrl} alt='product-img'/>
+                <img className='product-image' src={imageUrl} alt='product-img'/>
             </div>
             <div className='product-description'>
                 <h2 className='name'>{name}</h2>

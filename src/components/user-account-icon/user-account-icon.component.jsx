@@ -12,7 +12,7 @@ const UserAccountIcon = (props) => {
             className='option' 
             to='/'
             {...props}>
-            <FontAwesomeIcon className='icon' icon={faUser} />
+            <FontAwesomeIcon className='icon' icon={faUser}/>
         </Link>
     );
 };

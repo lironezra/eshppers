@@ -1,36 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import CarouselItems from '../carousel-items/carousel-items.component';
 
 import './sales-banner.styles.scss';
 
 const SalesBanner = ({ backgroundImage }) => {
     return (
         <section className='mu-section'>
-
             <article className='sales-banner'>
                 <div 
                     className='banner-background'
-                    style={{
-                        backgroundImage: `url(${backgroundImage})`,
-                        marginLeft: 'auto',
-                        width: '100%'
-                    }}
+                    style={{ backgroundImage: `url(${backgroundImage})` }}
                 />
-
-                <Link style={{color: '#2d2d2d'}} to='/sale'>
+                <Link className='sales-link' to='/sale'>
                     <header className='banner-header'>
                         <div className='salesBanner-headerWrap-desktop'>
                             <div className='salesBanner-header-textContainer'>
                                 <h2 className='salesBanner-header-title'>
-                                    <span
-                                        className='salesBanner-header__tape'
-                                        style={{
-                                            color: '#232323',
-                                            backgroundColor: '#48FFC6',
-                                            boxShadow: '0.37em 0 0 #48FFC6, -0.37em 0 0 #48FFC6'
-                                        }}
-                                    >
+                                    <span className='salesBanner-header__tape'>
                                         UP TO 60% OFF SELECTED STYLES
                                         <br />
                                         GET THEM BEFORE BLACK FRIDAY
@@ -40,6 +28,7 @@ const SalesBanner = ({ backgroundImage }) => {
                         </div>
                     </header>
                 </Link>
+                <CarouselItems />
             </article>
         </section>
     );
