@@ -16,26 +16,36 @@ const ProtectedRoute = ({
                 if (isAuthenticated) {
                     return <Component {...props} />
                 } else {
-                    if (props.location.pathname === '/cart') {                       
-                        return (
-                            <Redirect
-                            to={{
-                                pathname: "/error",
-                                state: { from: props.location }
-                            }}
-                            />
-                        )
-                    } else {
-                        return (
-                            <Redirect
-                            to={{
-                                pathname: "/signin",
-                                state: { from: props.location }
-                            }}
-                            />
-                        )
-                    }
+                    return (
+                        <Redirect
+                        to={{
+                            pathname: "/signin",
+                            state: { from: props.location }
+                        }}
+                        />
+                    )
                 }
+                // else {
+                //     if (props.location.pathname === '/cart') {                       
+                //         return (
+                //             <Redirect
+                //             to={{
+                //                 pathname: "/error",
+                //                 state: { from: props.location }
+                //             }}
+                //             />
+                //         )
+                //     } else {
+                //         return (
+                //             <Redirect
+                //             to={{
+                //                 pathname: "/signin",
+                //                 state: { from: props.location }
+                //             }}
+                //             />
+                //         )
+                //     }
+                // }
             }
         }
             // isVerifying ? (

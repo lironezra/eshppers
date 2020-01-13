@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 
 import AppLogo from '../../assets/app-logo.png';
 import CartIcon from '../cart-icon/cart-icon.component';
@@ -19,8 +19,12 @@ class Header extends Component  {
             showMyAccountMenu: false,
             showCartDropdown: false
             // showMyAccountMenu: true,
-            // showCartDropdown: true
+             //showCartDropdown: true
         }
+    }
+
+    componentDidMount() {
+        console.log('Header - componentDidMount')
     }
     
     toggleMyAccountMenu = (hide) => {
@@ -49,24 +53,21 @@ class Header extends Component  {
                     </NavLink> 
                 </div>
                 <div className='user-options'>
-                    <div className='my-account-option' 
-                        onMouseEnter={() => this.toggleMyAccountMenu(true)}
-                        onMouseLeave={() => this.toggleMyAccountMenu(false)} >
-                        <UserAccountIcon />
-                        {
-                            this.state.showMyAccountMenu ? <MyAccountDropDown /> : null   
-                        }                  
+                    <div className='my-account-option'
+                        onMouseLeave={() => this.toggleMyAccountMenu(false)} 
+                        >
+                        <UserAccountIcon 
+                            onMouseEnter={() => this.toggleMyAccountMenu(true)} />
+                        <MyAccountDropDown show={this.state.showMyAccountMenu} />
                     </div>
                     <div>
                         <SavedItemsIcon />
                     </div>
                     <div className='cart-option' 
-                        onMouseEnter={() => this.toggleCartDropdown(true)}
-                        onMouseLeave={() => this.toggleCartDropdown(false)} >
-                        <CartIcon />
-                        {
-                            this.state.showCartDropdown && this.props.isAuthenticated ? <CartDropdown />  : null   
-                        }                  
+                        onMouseLeave={() => this.toggleCartDropdown(false)}>
+                        <CartIcon 
+                            onMouseEnter={() => this.toggleCartDropdown(true) } />
+                        { this.props.history.location.pathname === '/cart' ? null : <CartDropdown show={this.state.showCartDropdown}/>}
                     </div>
                 </div>
             </div>
@@ -80,4 +81,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));

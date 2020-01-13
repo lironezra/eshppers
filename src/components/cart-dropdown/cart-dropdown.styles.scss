@@ -1,7 +1,7 @@
 .cart-dropdown {
     position: absolute;
     width: 290px;
-    height: 340px;
+    max-height: 340px;
     display: flex;
     flex-direction: column;
     border: 1px solid #dddddd;
@@ -9,6 +9,10 @@
     top: 55px;
     right: -11px;
     z-index: 5;
+
+    // transition-property: all;
+    transition-duration: .4s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 
     .cart-dropdown-header {
         background-color:  #eee;
@@ -58,6 +62,20 @@
       align-items: center;
       box-shadow: 0 -2px 3px 0 hsla(0,0%,60%,.2);
   }
+
+}
+
+.dropdown-open  {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all .3s ease-out;
+}
+
+.dropdown-closed {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(0%);
+  transition: all .3s  ease-out;
 
 }
   

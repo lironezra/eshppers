@@ -8,9 +8,11 @@ import CustomIcon from '../custom-icon/custom-icon.component';
 
 import './my-account-dropdown.styles.scss';
 
-const MyAccountDropdown = ({isAuthenticated, onLogout, currentUser}) => {
+const MyAccountDropdown = ({isAuthenticated, onLogout, currentUser, show}) => {
+    const className = ['my-account-dropdown' , show ? 'dropdown-open' : 'dropdown-closed'];
+    
     return (
-        <div className='my-account-dropdown'>
+        <div className={className.join(' ')} style={!show ? {pointerEvents: "none"} : {}}>
             <div className='my-account-menu-items'>
                 <div className='my-accout-dropdown-header'>
                 {

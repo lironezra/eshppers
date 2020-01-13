@@ -1,16 +1,20 @@
 .my-account-dropdown {
     position: absolute;
     width: 320px;
-    height: 200px;
-    // display: none;
+    max-height: 200px;
     display: flex;
     flex-direction: column;
-    // padding: 20px;
     border: 1px solid #dddddd;
     background-color: white;
     top: 55px;
     right: 80px;
-    z-index: 5;
+    z-index: 20;
+
+    //transition: all 0.3s cubic-bezier(0, 1, 0.5, 1);
+    
+    // transition-property: all;
+    transition-duration: .4s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 
     .my-account-menu-items {
         width: 100%;
@@ -59,7 +63,7 @@
             right: 35px;
             transition: opacity .6s;
             transition-delay: .25s;
-            z-index: 1;
+            z-index: 5;
         }
     }
   
@@ -67,4 +71,18 @@
       margin-top: auto;
     }
 }
+
+.dropdown-open  {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: all .3s ease-out;
+  }
+  
+  .dropdown-closed {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(0%);
+    transition: all .3s  ease-out;
+  
+  }
   

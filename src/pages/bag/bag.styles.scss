@@ -1,0 +1,276 @@
+.bag-holder {
+    max-width: 960px;
+    min-width: 500px;
+    padding: 10px;
+    margin: 0 auto;
+    color: #2d2d2d;
+
+    .bag-empty-container {
+        text-align: center;
+        margin-top: 60px;
+    }
+
+    .bag-content-wrapper {
+        width: 60%;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+
+        .bag-content-holder {
+            background-color: #fff;
+            display: inline-block;
+            padding: 0;
+            vertical-align: top;
+            width: 100%;
+            padding-bottom: 10px;
+
+            .bag-title-holder {
+                padding: 26px 9px 16px;
+                width: 90%;
+                margin: 0 auto;
+                border-bottom: 0.6px solid #eee;
+
+                .title {
+                    display: inline-block;
+                    margin: 0;
+                    font-size: 1.15em;
+                    font-family: futura-pt-n7,futura-pt,"Futura PT","Futura Book",Tahoma,Geneva,Verdana,Arial,sans-serif;
+                    font-style: normal;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 2.5px;
+                    line-height: 2em;
+                }
+
+                .bag-expiry-warning {
+                    margin: 0;
+                    float: right;
+                    line-height: 2.7em;
+                    font-size: .77em;
+                    letter-spacing: .6px;
+                }
+            }
+
+            .bag-item-list {
+                margin: 0 auto;
+                width: 100%;
+
+                .bag-items {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    width: 100%;
+
+                    .bag-item {
+                        display: flex;
+                        margin-top: 20px;
+                        padding: 0 30px;
+
+                        .item-img-wrapper {
+                            width: 23%;
+                            margin-right: 20px;
+
+                            img {
+                                height: auto;
+                                width: 100%;
+                            }
+                        }
+
+                        .item-description-wrapper {
+                            width: 70%;
+
+                            p {
+                                margin: 0;
+                            }
+
+                            .price {
+                                margin: 0;
+                                font-weight: 700;
+                                font-size: 19px;
+                                letter-spacing: 1.5px;
+                                // color: #d01345;
+                                padding-bottom: 5px;
+                            }
+
+                            .name {
+                                font-size: 13px;
+                                letter-spacing: 0.5px;
+                            }
+
+                            .bag-item-variants {
+                                line-height: .8em;
+                                margin: 10px 0;
+                                // background-color: yellow;
+                                width: 100%;
+                                height: 30px;
+                                
+                                .size-options, .quantity-options {
+                                    margin-right: 20px;
+                                    width: 50px;
+
+                                    // margin-bottom: 1em;
+                                    padding: .25em;
+                                    border: 0;
+                                    border-bottom: 2px solid #eee; 
+                                    font-weight: bold;
+                                    letter-spacing: .15em;
+                                    border-radius: 0;
+                                    &:focus, &:active {
+                                      outline: 0;
+                                      border-bottom-color: #0770cf;
+                                    }
+
+                                    &::placeholder { 
+                                        font-family: futura-pt-n7,futura-pt,"Futura PT","Futura Book",Tahoma,Geneva,Verdana,Arial,sans-serif;
+                                    }
+                                    // border-right: 1px solid #eee;
+                                }
+
+                                .quantity-holder {
+                                    font-size: 11px;
+                                    letter-spacing: 1px;
+                                    margin-right: 7px;
+                                }
+                            }
+
+                            .save-for-later-btn {
+                                color: #2d2d2d;;
+                                background: transparent;
+                                border: 1px solid #eee;
+                                font-size: 11px;
+                                padding: 5px 10px;
+                                cursor: pointer;
+                                letter-spacing: 0.3px;
+
+                                .icon {
+                                    margin-right: 5px; 
+                                }
+                            }
+                        }
+
+                        .bag-item-remove {
+                            width: 7%;
+
+                            .icon {
+                                cursor: pointer;
+                            }
+                        }
+
+                    }
+
+                    &:last-child {
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+
+            .bag-sub-total {
+                font-family: futura-pt-n7,futura-pt,"Futura PT","Futura Book",Tahoma,Geneva,Verdana,Arial,sans-serif;
+                font-weight: bolder;
+                text-transform: uppercase;
+                font-size: .9em;
+                text-align: right;
+                margin: 30px 0 14px;
+                padding: 0 30px;
+                letter-spacing: 1.5px;
+
+                .sub-total-text {
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+
+    .bag-secondary-content-wrapper {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        max-width: 370px;
+        margin-left: 10px;
+        transform: translate3d(0,0,0);
+        width: 35%;
+        background-color: #fff;
+        position: fixed;
+        padding: 20px;   
+        z-index: 10;     
+
+        .bag-title-holder-total {
+            padding: 7px 0px 14px;
+            width: 100%;
+            border-bottom: 0.6px solid #eee;
+            // margin-left: 20px;
+            
+            .title {
+                font-family: futura-pt-n7,futura-pt,"Futura PT","Futura Book",Tahoma,Geneva,Verdana,Arial,sans-serif;
+                display: inline-block;
+                margin: 0;
+                font-size: 1.15em;
+                font-style: normal;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 2.5px;
+                line-height: 2em;
+            }
+        }
+
+        .bag-subtotal-title-holder {
+            font-style: normal;
+            letter-spacing: 2px;
+
+            display: flex;
+            justify-content: space-between;
+
+            .subtotal-title {
+                font-family: futura-pt-n7,futura-pt,"Futura PT","Futura Book",Tahoma,Geneva,Verdana,Arial,sans-serif;
+                font-weight: 700;
+                font-size: 15px;
+            }
+
+            .subtotal-value {
+                font-weight: 400;
+            }
+        }
+
+        .bag-checkout-btn {
+            width: 100%;
+            height: 40px;
+            background-color: #00aa5b;
+            border: none;
+            color: white;
+            font-weight: 700;
+            font-family: 'Open Sans Condensed', sans-serif;
+            letter-spacing: 1.5px;
+            font-size: 14px;
+            cursor: pointer;
+
+            &:hover {
+                background-color:#04884a;
+            }
+        }
+
+        .bag-payment-options-holder {
+            font-family: futura-pt-n7,futura-pt,"Futura PT","Futura Book",Tahoma,Geneva,Verdana,Arial,sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            margin-top: 15px;
+            
+            .payment-image {
+                display: block;
+                height: 20px;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@keyframes removed-item-animation {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+ 
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}

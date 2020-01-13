@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { verifyAuth }  from './redux/auth/auth.actions';
 
@@ -12,21 +13,14 @@ import ShopPage from './pages/shop/shop.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import Header from './components/header/header.component';
 import SavedItems from './pages/saved-items/saved-items.component';
-import ErrorPage from './pages/error-pages/error-page.component';
+import BagPage from './pages/bag/bag.component';
 import ProductCard from './components/product-card/product-card.component';
 
 class App extends Component {
-
-  componentDidMount() {
-    const { onVerifyAuth } = this.props
-    // Checking if there already sgin in user
-    onVerifyAuth()
-  }
-
   render() {
     const { isAuthenticated, isVerifying, loading, currentUser } = this.props;
     return (
-      <div>
+      <div className='main'>
         <Header/>    
         <Switch>
           <Route exact path='/' component={HomePage}/>
@@ -56,7 +50,7 @@ class App extends Component {
           <ProtectedRoute
             exact
             path="/cart"
-            component={SavedItems}
+            component={BagPage}
             isAuthenticated={isAuthenticated}
             isVerifying={isVerifying}
           />
@@ -67,8 +61,7 @@ class App extends Component {
             isAuthenticated={isAuthenticated}
             isVerifying={isVerifying}
           />
-          <Route exact path='/error' component={ErrorPage}/>
-          {/* <Route exact path='/product-item/:productName/:productId' component={ProductCard}/> */}
+          {/* <Route exact path='/error' component={ErrorPage}/> */}
             {/* <ProtectedRoute
             exact
             path="/error"

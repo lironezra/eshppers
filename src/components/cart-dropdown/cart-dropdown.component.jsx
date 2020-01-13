@@ -6,9 +6,10 @@ import CartItem from '../cart-item/cart-item.component';
 
 import './cart-dropdown.styles.scss';
 
-const CartDropDown = ({ cartItems, totalCartItemsQuantity, totalPrice }) => {
+const CartDropDown = ({ cartItems, totalCartItemsQuantity, totalPrice, show }) => {
+    const className = ['cart-dropdown' , show ? 'dropdown-open' : 'dropdown-closed'];
     return (
-        <div className='cart-dropdown'>
+        <div className={className.join(' ')}>
             <div className='cart-dropdown-header'>
                 <span><strong>My Bag</strong>, {totalCartItemsQuantity} items</span>
             </div>

@@ -8,11 +8,14 @@ import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 
 import './cart-icon.styles.scss';
 
-const CartIcon = ({ totalCartItemsQuantity }) => {
+const CartIcon = ( props ) => {
+    const { totalCartItemsQuantity, onMouseEnter } = props;
+    
     let cartIconContent = 
         <Link
             to={'/cart'}
-            className='cart-icon' >  
+            className='cart-icon'
+            onMouseEnter={onMouseEnter} >  
                 <FontAwesomeIcon className='icon' icon={faShoppingBag} />
                 <span className='item-count'>{totalCartItemsQuantity !== 0 ? totalCartItemsQuantity : null}</span>
         </Link>;

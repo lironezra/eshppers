@@ -2,7 +2,6 @@ import React from 'react';
 import './error-page.styles.scss';
  
 const ErrorPage = ({ errorCode, errorMsg, location }) => {
-    console.log(location.state.from.pathname);
     const errorFrom = location.state.from.pathname;
     switch (errorFrom) {
         case '/cart':
