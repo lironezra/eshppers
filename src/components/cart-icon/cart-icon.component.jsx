@@ -10,17 +10,14 @@ import './cart-icon.styles.scss';
 
 const CartIcon = ( props ) => {
     const { totalCartItemsQuantity, onMouseEnter } = props;
-    
-    let cartIconContent = 
-        <Link
-            to={'/cart'}
+
+    return (
+        <div
             className='cart-icon'
             onMouseEnter={onMouseEnter} >  
                 <FontAwesomeIcon className='icon' icon={faShoppingBag} />
                 <span className='item-count'>{totalCartItemsQuantity !== 0 ? totalCartItemsQuantity : null}</span>
-        </Link>;
-    return (
-        cartIconContent
+        </div>
     );
 };
 

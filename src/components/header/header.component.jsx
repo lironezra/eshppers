@@ -32,7 +32,10 @@ class Header extends Component  {
     }
 
     toggleCartDropdown = (hide) => {
-        this.setState({ showCartDropdown: hide })
+        const { isAuthenticated } = this.props;
+        if (isAuthenticated) {
+            this.setState({ showCartDropdown: hide })
+        }
     }
 
     render () {
@@ -54,8 +57,7 @@ class Header extends Component  {
                 </div>
                 <div className='user-options'>
                     <div className='my-account-option'
-                        onMouseLeave={() => this.toggleMyAccountMenu(false)} 
-                        >
+                        onMouseLeave={() => this.toggleMyAccountMenu(false)} >
                         <UserAccountIcon 
                             onMouseEnter={() => this.toggleMyAccountMenu(true)} />
                         <MyAccountDropDown show={this.state.showMyAccountMenu} />

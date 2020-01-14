@@ -1,13 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-import CustomButton from '../custom-button/custom-button.component';
 import CartItem from '../cart-item/cart-item.component';
 
 import './cart-dropdown.styles.scss';
 
-const CartDropDown = ({ cartItems, totalCartItemsQuantity, totalPrice, show }) => {
+const CartDropDown = (props) => {
+    const { cartItems, totalCartItemsQuantity, totalPrice, show } = props;
     const className = ['cart-dropdown' , show ? 'dropdown-open' : 'dropdown-closed'];
+
+    const viewBagClicked = () => {
+        props.history.push('/cart');
+    };
+
     return (
         <div className={className.join(' ')}>
             <div className='cart-dropdown-header'>
@@ -23,7 +29,8 @@ const CartDropDown = ({ cartItems, totalCartItemsQuantity, totalPrice, show }) =
                 <span>{totalPrice.toFixed(2)}$</span>
             </div>
             <div className='btn-container'>
-                <CustomButton btnType='regular'>CHECKOUT</CustomButton>
+                <button className='cart-view-bag-btn' onClick={() => viewBagClicked()}>VIEW BAG</button>
+                <button className='cart-checkout-btn'>CHECKOUT</button>
             </div>
         </div>
     );
@@ -37,4 +44,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps)(CartDropDown);
+export default withRouter(connect(mapStateToProps)(CartDropDown));
