@@ -11,6 +11,7 @@ const CartDropDown = (props) => {
     const className = ['cart-dropdown' , show ? 'dropdown-open' : 'dropdown-closed'];
 
     const viewBagClicked = () => {
+        props.viewBagClickedHandler();
         props.history.push('/cart');
     };
 

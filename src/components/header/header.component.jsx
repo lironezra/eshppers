@@ -14,6 +14,7 @@ import './header.styles.scss';
 class Header extends Component  {
     constructor(props) {
         super(props);
+        this.toggleCartDropdown = this.toggleCartDropdown.bind(this);
 
         this.state = {
             showMyAccountMenu: false,
@@ -60,7 +61,9 @@ class Header extends Component  {
                         onMouseLeave={() => this.toggleMyAccountMenu(false)} >
                         <UserAccountIcon 
                             onMouseEnter={() => this.toggleMyAccountMenu(true)} />
-                        <MyAccountDropDown show={this.state.showMyAccountMenu} />
+                        <MyAccountDropDown 
+                            show={this.state.showMyAccountMenu}
+                            />
                     </div>
                     <div>
                         <SavedItemsIcon />
@@ -69,7 +72,10 @@ class Header extends Component  {
                         onMouseLeave={() => this.toggleCartDropdown(false)}>
                         <CartIcon 
                             onMouseEnter={() => this.toggleCartDropdown(true) } />
-                        { this.props.history.location.pathname === '/cart' ? null : <CartDropdown show={this.state.showCartDropdown}/>}
+                        { this.props.history.location.pathname === '/cart' ?
+                             null : <CartDropdown 
+                                        viewBagClickedHandler={() => this.toggleCartDropdown(false)}  
+                                        show={this.state.showCartDropdown}/>}
                     </div>
                 </div>
             </div>
