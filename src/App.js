@@ -12,6 +12,7 @@ import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import Header from './components/header/header.component';
+import Footer from './components/footer/footer.component';
 import SavedItems from './pages/saved-items/saved-items.component';
 import BagPage from './pages/bag/bag.component';
 import ProductCard from './components/product-card/product-card.component';
@@ -70,6 +71,7 @@ class App extends Component {
             isVerifying={isVerifying}
             /> */}
         </Switch>        
+        <Footer />
       </div>
     );
   }

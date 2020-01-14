@@ -1,0 +1,80 @@
+
+.footer-wrapper {
+    font-size: .72rem;
+    margin-top: 30px;
+    color: #666;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    
+    .footer-top {
+        border-top: 0.5px solid #eee;
+        width: 100%;
+        text-align: center;
+        
+        .social-media-nav {
+            display: inline-block;
+            margin: 20px auto;
+            border-right: .5px solid #999;
+
+            .social-icon {
+                width: 30px;
+                height: 30px;
+                margin: 0 40px 0 0;
+                border-radius: 50%;
+            }
+        }
+
+        .credit-nav {
+            display: inline-block;
+            margin-left: 40px;
+            .payment-methods {
+                width: 230px;
+            }
+        }
+    }
+
+    .footer-bottom {
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 30px;
+        background-color: #ddd;
+
+        p {
+            height: 100%;
+            margin: 0;
+            padding: 19px;
+            line-height: 14px;
+        }
+    
+        .footer-bar {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            text-align: right;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+    
+            .footer-bar-item {
+                line-height: 50px;
+                display: inline-block;
+                position: relative;
+                padding-right: 1em;
+    
+                &:not(:last-child)::after {
+                    content: "|";
+                    display: inline;
+                    position: absolute;
+                    right: 3px;
+                }
+    
+                &:hover {
+                    color: #0770cf
+                }
+            }
+        }
+    }
+}
