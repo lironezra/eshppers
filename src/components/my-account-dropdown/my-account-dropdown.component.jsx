@@ -10,21 +10,19 @@ import './my-account-dropdown.styles.scss';
 
 const MyAccountDropdown = ({isAuthenticated, onLogout, currentUser, show}) => {
     const className = ['my-account-dropdown' , show ? 'dropdown-open' : 'dropdown-closed'];
-    
+
     return (
-        <div className={className.join(' ')} style={!show ? {pointerEvents: "none"} : {}}>
+        <div className={className.join(' ')}>
             <div className='my-account-menu-items'>
                 <div className='my-accout-dropdown-header'>
                 {
                     isAuthenticated ? (
-                            <Link to='/' onClick={onLogout}
-                                style={{ border: 'none', margin: '0', padding: '0', fontSize: '16px'}}>
+                            <Link to='/' onClick={onLogout} className='header-link'>
                                 <span className='hello-user-text'>Hi {currentUser.displayName}</span>
-                                <span style={{textDecoration: 'underline'}}>Sign Out</span>
+                                <span className='sign-out-link-text'>Sign Out</span>
                             </Link>
                     ) : (
-                        <Link to='/signin' 
-                            style={{ padding: '0', border: 'none', margin: '0', textDecoration: 'underline', fontSize: '16px'}}>
+                        <Link to='/signin' className='header-link' style={{ textDecoration: 'underline' }}>
                             Sign In Or Join
                         </Link>
                     )
