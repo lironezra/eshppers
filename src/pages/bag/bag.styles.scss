@@ -61,103 +61,6 @@
                     margin: 0;
                     width: 100%;
 
-                    .bag-item {
-                        display: flex;
-                        margin-top: 20px;
-                        padding: 0 30px;
-
-                        .item-img-wrapper {
-                            width: 23%;
-                            margin-right: 20px;
-
-                            img {
-                                height: auto;
-                                width: 100%;
-                            }
-                        }
-
-                        .item-description-wrapper {
-                            width: 70%;
-
-                            p {
-                                margin: 0;
-                            }
-
-                            .price {
-                                margin: 0;
-                                font-weight: 700;
-                                font-size: 19px;
-                                letter-spacing: 1.5px;
-                                // color: #d01345;
-                                padding-bottom: 5px;
-                            }
-
-                            .name {
-                                font-size: 13px;
-                                letter-spacing: 0.5px;
-                            }
-
-                            .bag-item-variants {
-                                line-height: .8em;
-                                margin: 10px 0;
-                                // background-color: yellow;
-                                width: 100%;
-                                height: 30px;
-                                
-                                .size-options, .quantity-options {
-                                    margin-right: 20px;
-                                    width: 50px;
-
-                                    // margin-bottom: 1em;
-                                    padding: .25em;
-                                    border: 0;
-                                    border-bottom: 2px solid #eee; 
-                                    font-weight: bold;
-                                    letter-spacing: .15em;
-                                    border-radius: 0;
-                                    &:focus, &:active {
-                                      outline: 0;
-                                      border-bottom-color: #0770cf;
-                                    }
-
-                                    &::placeholder { 
-                                        font-family: futura-pt-n7,futura-pt,"Futura PT","Futura Book",Tahoma,Geneva,Verdana,Arial,sans-serif;
-                                    }
-                                    // border-right: 1px solid #eee;
-                                }
-
-                                .quantity-holder {
-                                    font-size: 11px;
-                                    letter-spacing: 1px;
-                                    margin-right: 7px;
-                                }
-                            }
-
-                            .save-for-later-btn {
-                                color: #2d2d2d;;
-                                background: transparent;
-                                border: 1px solid #eee;
-                                font-size: 11px;
-                                padding: 5px 10px;
-                                cursor: pointer;
-                                letter-spacing: 0.3px;
-
-                                .icon {
-                                    margin-right: 5px; 
-                                }
-                            }
-                        }
-
-                        .bag-item-remove {
-                            width: 7%;
-
-                            .icon {
-                                cursor: pointer;
-                            }
-                        }
-
-                    }
-
                     &:last-child {
                         margin-bottom: 20px;
                     }
@@ -260,17 +163,5 @@
                 margin-top: 10px;
             }
         }
-    }
-}
-
-@keyframes removed-item-animation {
-    0% {
-        opacity: 1;
-        transform: translateX(0);
-    }
- 
-    100% {
-        opacity: 0;
-        transform: translateX(100%);
     }
 }

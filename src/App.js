@@ -23,54 +23,46 @@ class App extends Component {
     return (
       <div className='main'>
         <Header/>    
-        <Switch>
-          <Route exact path='/' component={HomePage}/>
-          <Route 
-            exact 
-            path='/signin'
-            render={() => 
-              currentUser ? (
-                <Redirect to='/' /> 
-              ) :
-              (<SignInAndSignUpPage loading={loading}/>)              
-            } />
-          <ProtectedRoute
-            exact
-            path="/shop"
-            component={ShopPage}
-            isAuthenticated={isAuthenticated}
-            isVerifying={isVerifying}
-          />
-          <ProtectedRoute
-            exact
-            path="/like-items"
-            component={SavedItems}//MyItemPage
-            isAuthenticated={isAuthenticated}
-            isVerifying={isVerifying}
-          />
-          <ProtectedRoute
-            exact
-            path="/cart"
-            component={BagPage}
-            isAuthenticated={isAuthenticated}
-            isVerifying={isVerifying}
-          />
-          <ProtectedRoute
-            exact
-            path="/product-item/:productName/:productId"
-            component={ProductCard}
-            isAuthenticated={isAuthenticated}
-            isVerifying={isVerifying}
-          />
-          {/* <Route exact path='/error' component={ErrorPage}/> */}
-            {/* <ProtectedRoute
-            exact
-            path="/error"
-            component={ErrorPage}
-            isAuthenticated={isAuthenticated}
-            isVerifying={isVerifying}
-            /> */}
-        </Switch>        
+          <Switch>
+            <Route exact path='/' component={HomePage}/>
+            <Route 
+              exact 
+              path='/signin'
+              render={() => 
+                currentUser ? (
+                  <Redirect to='/' /> 
+                ) :
+                (<SignInAndSignUpPage loading={loading}/>)              
+              } />
+            <ProtectedRoute
+              exact
+              path="/shop"
+              component={ShopPage}
+              isAuthenticated={isAuthenticated}
+              isVerifying={isVerifying}
+            />
+            <ProtectedRoute
+              exact
+              path="/like-items"
+              component={SavedItems}//MyItemPage
+              isAuthenticated={isAuthenticated}
+              isVerifying={isVerifying}
+            />
+            <ProtectedRoute
+              exact
+              path="/cart"
+              component={BagPage}
+              isAuthenticated={isAuthenticated}
+              isVerifying={isVerifying}
+            />
+            <ProtectedRoute
+              exact
+              path="/product-item/:productName/:productId"
+              component={ProductCard}
+              isAuthenticated={isAuthenticated}
+              isVerifying={isVerifying}
+            />
+          </Switch>                  
         <Footer />
       </div>
     );
