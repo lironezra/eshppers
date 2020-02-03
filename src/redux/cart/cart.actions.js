@@ -13,3 +13,11 @@ export const removeItem = item => {
         item: item
     }
 }
+
+export const updateItem = (item, updatedValues) => {
+    return {
+        type: actionTypes.UPDATE_ITEM,
+        item: item,
+        updatedValues: updatedValues
+    }
+}

@@ -1,6 +1,6 @@
 import * as actionTypes from './cart.types';
 
-import { addItemToCart, removeItemFromCart } from './cart.utils';
+import { addItemToCart, removeItemFromCart, updateItemFromCart, updateTotalCartItemsQuantity, updateTotalPrice } from './cart.utils';
 
 const INITIAL_STATE = {
     cartItems: [],
@@ -12,6 +12,7 @@ const reducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case actionTypes.ADD_ITEM: return addItem(state,action);
         case actionTypes.REMOVE_ITEM: return removeItem(state, action);
+        case actionTypes.UPDATE_ITEM: return updateItem(state, action);
         default:
             return state;
     }
@@ -34,5 +35,14 @@ const removeItem = (state, action) => {
         totalPrice: state.totalPrice - (action.item.quantity * action.item.price) 
     };
 };
+
+const updateItem = (state, action) => {
+    return {
+        ...state, 
+        cartItems: updateItemFromCart(state.cartItems, action.item, action.updatedValues),
+        totalCartItemsQuantity: updateTotalCartItemsQuantity(state.totalCartItemsQuantity, action.item.quantity, action.updatedValues),
+        totalPrice: updateTotalPrice(state, action)
+    }
+}
 
 export default reducer;
