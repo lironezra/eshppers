@@ -1,10 +1,11 @@
 .link-item {
     text-decoration: none;
     display: block; 
+    width: 100%;
 
     .carousel-image {
         width: auto;
-        height: 255px;
+        height: 215px;
         position: relative;
         display: block;
     }
@@ -15,7 +16,7 @@
         overflow: hidden;
         display: block;
         height: 40px;
-        width: 170px;
+        width: 143.5px;
         position: relative;
 
         .label-text {
@@ -42,6 +43,16 @@
             transform: scale(1.03) !important;
         }
     }
+}
+
+.slick-slide {
+    width: 165px !important;
+
+}
+
+.slick-track {
+    padding-left: 18% !important;
+    // margin: 0 auto !important;
 }
 
 

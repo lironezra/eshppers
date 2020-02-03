@@ -7,57 +7,58 @@ import HoodiesImg from '../../assets/hoodies-and-sweatshirt.jpg';
 import JeanseImg from '../../assets/jeanse.jpg';
 import TshirtImg from '../../assets/tshirt.jpg';
 
-
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+// Import css files - new!!!
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import './carousel-items.styles.scss';
 
-const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-      paritialVisibilityGutter: 60
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-      paritialVisibilityGutter: 50
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      paritialVisibilityGutter: 30
-    }
-  };
+const settings = {
+    dots: false,
+    infinite: false,
+    swipe: false,
+    arrows: false,
+    speed: 700,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+    responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            infinite: true,
+            swipe: true,
+            dots: false
+            
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            infinite: true,
+            swipe: true,
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            infinite: true,
+            swipe: true,
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+};
 
 const CarouselItems = () => {
     return(
-        <Carousel 
-            additionalTransfrom={0}
-            arrows
-            autoPlaySpeed={3000}
-            centerMode={false}
-            className=""
-            containerClass="container-with-dots"
-            dotListClass=""
-            draggable
-            focusOnSelect={false}
-            itemClass=""
-            keyBoardControl
-            minimumTouchDrag={80}
-            renderButtonGroupOutside={false}
-            renderDotsOutside={false}
-            showDots={false}
-            sliderClass=""
-            slidesToSlide={1}
-            swipeable
-             responsive={responsive} 
-            // infinite={false}
-            // arrows={true}
-            // draggable={false}
-            // removeArrowOnDeviceType={["tablet", "mobile"]}
-            >
+        <Slider {...settings}>
             <Link to='/sales/jackets-and-coats' className='link-item'>
                 <img src={JacketsAndCoatsImg} alt="pic1" className='carousel-image'/>
                 <div className='label-wrap'>
@@ -88,7 +89,8 @@ const CarouselItems = () => {
                     <span className='label-text'>T-SHIRTS & VESTS</span>
                 </div>
             </Link>
-        </Carousel>
+        </Slider>
+
     )
 }
 
