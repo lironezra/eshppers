@@ -10,6 +10,14 @@ import FormSelectInput from '../form-select-input/form-select-input.component';
 
 import './product-card.styles.scss';
 
+// const clothingOptions = {
+//     tops: ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'],
+//     bottoms: ['36', '38', '40', '42', '44', '46', '48']
+// };
+// const accessoriesOptions = []
+// const shoesOptions = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
+
+
 const ProductCard = ({location, addItem}) => {
     const [size, setSize] = useState('Please select');
     const [error, setError] = useState(false);
