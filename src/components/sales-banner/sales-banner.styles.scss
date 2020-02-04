@@ -76,5 +76,10 @@
 @media screen and (max-width: 600px) {
     .salesBanner-header-title {
         font-size: 28px !important;
+        margin-top: 10px;
+    }
+
+    .banner-header {
+        padding: 0 9px;
     }
   }
