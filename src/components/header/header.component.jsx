@@ -8,6 +8,7 @@ import SavedItemsIcon from '../saved-items-icon/saved-items-icon.component';
 import UserAccountIcon from '../user-account-icon/user-account-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import MyAccountDropDown from '../my-account-dropdown/my-account-dropdown.component';
+import DrawerToggleButton from '../side-drawer/drawer-toggle-button.component';
 
 import './header.styles.scss';
 
@@ -24,10 +25,6 @@ class Header extends Component  {
         }
     }
 
-    componentDidMount() {
-        console.log('Header - componentDidMount')
-    }
-    
     toggleMyAccountMenu = (hide) => {
         this.setState({ showMyAccountMenu: hide })
     }
@@ -42,19 +39,30 @@ class Header extends Component  {
     render () {
         return (
             <div className='header'>
+                <div className='side-menu-button'>
+                    <DrawerToggleButton click={this.props.drawerClickHandler}/>
+                </div>
                 <Link className='logo-container' to='/'>
                     <img className='app-logo' src={AppLogo} alt='app=logo' />
                 </Link>
-                <div className='options'>
-                    <NavLink  className='option' activeClassName='is-active' to='/shop'>
-                        SHOP                    
-                    </NavLink>     
-                    <NavLink className='option' activeClassName='is-active' to='/women'>
-                        WOMEN                   
-                    </NavLink>   
-                    <NavLink className='option' activeClassName='is-active' to='/men'>
-                        MEN                   
-                    </NavLink> 
+                <div className='header-navigation-items'>
+                    <ul>
+                        <li>
+                            <Link className='navigation-item' to='/shop'>
+                                SHOP                    
+                            </Link>     
+                        </li>
+                        <li>
+                            <Link className='navigation-item' to='/women'>
+                                WOMEN                   
+                            </Link>   
+                        </li>
+                        <li>
+                            <Link className='navigation-item' to='/men'>
+                                MEN                   
+                            </Link> 
+                        </li>
+                    </ul>
                 </div>
                 <div className='user-options'>
                     <div className='my-account-option'

@@ -16,13 +16,40 @@ import Footer from './components/footer/footer.component';
 import SavedItems from './pages/saved-items/saved-items.component';
 import BagPage from './pages/bag/bag.component';
 import ProductCard from './components/product-card/product-card.component';
+import SideDrawer from './components/side-drawer/side-drawer.component';
+import Backdrop from './components/Shared/backdrop/backdrop.component';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      sideDrawerOpen: false
+    }
+  }
+
+  drawerToggleClickHandler = () => {
+    this.setState((prevState) => {
+      return { sideDrawerOpen: !prevState.sideDrawerOpen}
+    });
+  };
+
+  backDropClickHandler = () => {
+    this.setState({ sideDrawerOpen: false })
+  };
+
   render() {
     const { isAuthenticated, isVerifying, loading, currentUser } = this.props;
+    let backDrop;
+
+    if (this.state.sideDrawerOpen) {
+      backDrop = <Backdrop click={this.backDropClickHandler}/>
+    }
     return (
         <div className='main'>
-          <Header/>    
+          <Header drawerClickHandler={this.drawerToggleClickHandler} />    
+          <SideDrawer visible={this.state.sideDrawerOpen} closeSideDrawer={this.backDropClickHandler}/>
+          {backDrop}
             <Switch>
               <Route exact path='/' component={HomePage}/>
               <Route 
