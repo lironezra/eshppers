@@ -9,9 +9,18 @@
     .item-count {
         position: absolute;;
         color: #2d2d2d;
-        right: 23px;
-        top: 0.5px;
+        right: 53px;
+        top: 1.3px;
         font-size: 10px;
         font-weight: 700;
     }
+}
+
+@media (max-width: 768px) {
+    .cart-icon{
+        .item-count {
+            right: 23px;
+            top: -2px;
+        }
+    } 
 }
