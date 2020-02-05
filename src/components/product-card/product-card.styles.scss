@@ -100,26 +100,25 @@
         display: block;
 
         .product-photo {
-            // width: 100%;
     
             .product-image {
-                height: 500px;
-                width: auto;
+                width: 100%;
+                height: auto;
             }
         }
     }    
 
 }
 
-@media screen and (max-width: 900px) {
-    .product-card {
+// @media screen and (max-width: 900px) {
+//     .product-card {
 
-        .product-photo {
+//         .product-photo {
     
-            .product-image {
-                height: 450px;
-                width: auto;
-            }
-        }
-    }    
-}
+//             .product-image {
+//                 height: 450px;
+//                 width: auto;
+//             }
+//         }
+//     }    
+// }

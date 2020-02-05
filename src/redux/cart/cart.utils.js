@@ -86,7 +86,9 @@ export const updateItemFromCart = (cartItems, cartItemToUpdate, updatedValues) =
                     }
                 }
             }
-            //return null;
+            return {
+                ...item
+            };
         })
     }
 

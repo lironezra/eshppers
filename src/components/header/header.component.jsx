@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, NavLink, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import AppLogo from '../../assets/app-logo.png';
 import CartIcon from '../cart-icon/cart-icon.component';
