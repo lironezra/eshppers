@@ -52,8 +52,7 @@ class SignUp extends Component {
         const { errorAPI } = this.props;
         return (
             <div className='sign-up'>
-                <h2 className='title'>DO NOT HAVE AN ACCOUNT</h2>
-                <span>SIGN UP WITH YOUR EMAIL</span>
+                <h2>SIGN UP WITH YOUR EMAIL</h2>
                 <form className='sign-up-form' onSubmit={this.handleSubmit}>
                     { error ? <ErrorBox>{error}</ErrorBox> : null }
                     { errorAPI ? <ErrorBox>{errorAPI.message}</ErrorBox> : null }

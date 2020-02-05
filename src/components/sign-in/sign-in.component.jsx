@@ -38,11 +38,8 @@ class SignIn extends Component {
 
         return (
             <div className='sign-in'>
-                <h2 className='title'>ALREADY HAVE AN ACCOUNT</h2>
-                <span>SIGN IN WITH EMAIL</span>
-                <form onSubmit={this.handleSubmit}>
-                {/* {errorAPI ? <p className='error-description'>{errorAPI.message}</p> : null} */}
-
+                <h2>SIGN IN WITH EMAIL</h2>
+                <form className='sign-in-form' onSubmit={this.handleSubmit}>
                     {errorAPI ? <ErrorBox>{errorAPI.message}</ErrorBox> : null}
                     <FormInput 
                         name='email' 

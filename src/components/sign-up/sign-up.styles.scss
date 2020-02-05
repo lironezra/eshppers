@@ -1,12 +1,12 @@
 .sign-up {
     display: flex;
     flex-direction: column;
-    width: 440px;
     text-align: center;
+    margin: 0 auto;
 
-    span {
-        font-size: 14px;
-        font-weight: 700;
+    .sign-up-form {
+        width: 70%;
+        margin: 0 auto;
     }
 
     .error-description {
@@ -15,8 +15,4 @@
         text-align: left;
         margin: 10px 0px 0px 0px;
     }
-}
-
-.title {
-    margin: 10px 0;
 }
