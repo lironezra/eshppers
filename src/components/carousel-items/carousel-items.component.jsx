@@ -16,20 +16,16 @@ import './carousel-items.styles.scss';
 
 const settings = {
     dots: false,
-    infinite: false,
-    swipe: false,
     arrows: false,
     speed: 700,
     slidesToShow: 5,
     slidesToScroll: 1,
-    adaptiveHeight: true,
     responsive: [
         {
           breakpoint: 1024,
           settings: {
             slidesToShow: 4,
             slidesToScroll: 1,
-            infinite: true,
             swipe: true,
             dots: false
             
@@ -38,58 +34,59 @@ const settings = {
         {
           breakpoint: 600,
           settings: {
-            infinite: true,
             swipe: true,
             slidesToShow: 2,
             slidesToScroll: 1
           }
         },
-        {
-          breakpoint: 480,
-          settings: {
-            infinite: true,
-            swipe: true,
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
+        // {
+        //   breakpoint: 480,
+        //   settings: {
+        //     infinite: true,
+        //     swipe: true,
+        //     slidesToShow: 1,
+        //     slidesToScroll: 1
+        //   }
+        // }
       ]
 };
 
 const CarouselItems = () => {
     return(
-        <Slider {...settings}>
-            <Link to='/sales/jackets-and-coats' className='link-item'>
-                <img src={JacketsAndCoatsImg} alt="pic1" className='carousel-image'/>
-                <div className='label-wrap'>
-                    <span className='label-text'>JACKETS & COATS</span>
-                </div>
-            </Link>
-            <Link to='/sales/shoes-and-trainers' className='link-item'>
-                <img src={ShoesImg} alt="pic1" className='carousel-image'/>
-                <div className='label-wrap'>
-                    <span className='label-text'>SHOES & TRAINERS</span>
-                </div>
-            </Link>
-            <Link to='/sales/hoodies-and-sweatshirts' className='link-item'>
-                <img src={HoodiesImg} alt="pic1" className='carousel-image'/>
-                <div className='label-wrap'>
-                    <span className='label-text'>HOODIES & SWEATSHIRTS</span>
-                </div>
-            </Link>
-            <Link to='/sales/jeanses' className='link-item'>
-                <img src={JeanseImg} alt="pic1" className='carousel-image'/>
-                <div className='label-wrap'>
-                    <span className='label-text'>JEANS</span>
-                </div>
-            </Link>
-            <Link to='/sales/tshirts-and-vests' className='link-item'>
-                <img src={TshirtImg} alt="pic1" className='carousel-image'/>
-                <div className='label-wrap'>
-                    <span className='label-text'>T-SHIRTS & VESTS</span>
-                </div>
-            </Link>
-        </Slider>
+        <div className='carousel-container'>
+            <Slider {...settings}>
+                <Link to='/sales/jackets-and-coats' className='link-item'>
+                    <img src={JacketsAndCoatsImg} alt="pic1" className='carousel-image'/>
+                    <div className='label-wrap'>
+                        <span className='label-text'>JACKETS & COATS</span>
+                    </div>
+                </Link>
+                <Link to='/sales/shoes-and-trainers' className='link-item'>
+                    <img src={ShoesImg} alt="pic1" className='carousel-image'/>
+                    <div className='label-wrap'>
+                        <span className='label-text'>SHOES & TRAINERS</span>
+                    </div>
+                </Link>
+                <Link to='/sales/hoodies-and-sweatshirts' className='link-item'>
+                    <img src={HoodiesImg} alt="pic1" className='carousel-image'/>
+                    <div className='label-wrap'>
+                        <span className='label-text'>HOODIES & SWEATSHIRTS</span>
+                    </div>
+                </Link>
+                <Link to='/sales/jeanses' className='link-item'>
+                    <img src={JeanseImg} alt="pic1" className='carousel-image'/>
+                    <div className='label-wrap'>
+                        <span className='label-text'>JEANS</span>
+                    </div>
+                </Link>
+                <Link to='/sales/tshirts-and-vests' className='link-item'>
+                    <img src={TshirtImg} alt="pic1" className='carousel-image'/>
+                    <div className='label-wrap'>
+                        <span className='label-text'>T-SHIRTS & VESTS</span>
+                    </div>
+                </Link>
+            </Slider>
+        </div>
 
     )
 }
