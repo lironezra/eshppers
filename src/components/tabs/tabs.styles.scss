@@ -1,0 +1,15 @@
+.tabs {
+    background-color: white;
+    padding: 20px 58px;
+
+    .tab-list {
+        border-bottom: 1px solid #999;
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tabs {
+      padding: 20px;
+    }
+  }
