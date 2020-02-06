@@ -16,7 +16,7 @@ const persistConfig = {
     transforms: [
         expireReducer('cart', {
             persistedAtKey: '__persisted_at',
-            expireSeconds: 30,
+            expireSeconds: 3600,
             expiredState: {
                 cartItems: [],
                 totalCartItemsQuantity: 0,

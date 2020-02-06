@@ -19,7 +19,6 @@ const reducer = (state = INITIAL_STATE, action) => {
 };
 
 const addItem = (state, action) => {
-    console.log(state.__persisted_at);
     return {
         ...state,
         cartItems: addItemToCart(state.cartItems, action.item),
