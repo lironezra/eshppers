@@ -19,11 +19,13 @@ const reducer = (state = INITIAL_STATE, action) => {
 };
 
 const addItem = (state, action) => {
+    console.log(state.__persisted_at);
     return {
         ...state,
         cartItems: addItemToCart(state.cartItems, action.item),
         totalCartItemsQuantity: state.totalCartItemsQuantity + 1,
-        totalPrice: state.totalPrice + action.item.price
+        totalPrice: state.totalPrice + action.item.price,
+        __persisted_at: new Date().getTime()
     };
 };
 
@@ -32,7 +34,8 @@ const removeItem = (state, action) => {
         ...state,
         cartItems: removeItemFromCart(state.cartItems, action.item),// change this method
         totalCartItemsQuantity: state.totalCartItemsQuantity - action.item.quantity,
-        totalPrice: state.totalPrice - (action.item.quantity * action.item.price) 
+        totalPrice: state.totalPrice - (action.item.quantity * action.item.price),
+        __persisted_at: new Date().getTime()
     };
 };
 
@@ -41,7 +44,8 @@ const updateItem = (state, action) => {
         ...state, 
         cartItems: updateItemFromCart(state.cartItems, action.item, action.updatedValues),
         totalCartItemsQuantity: updateTotalCartItemsQuantity(state.totalCartItemsQuantity, action.item.quantity, action.updatedValues),
-        totalPrice: updateTotalPrice(state, action)
+        totalPrice: updateTotalPrice(state, action),
+        __persisted_at: new Date().getTime()
     }
 }
 

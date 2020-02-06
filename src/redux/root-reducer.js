@@ -15,7 +15,8 @@ const persistConfig = {
     whitelist: ['cart'],
     transforms: [
         expireReducer('cart', {
-            expireSeconds: 3600,
+            persistedAtKey: '__persisted_at',
+            expireSeconds: 30,
             expiredState: {
                 cartItems: [],
                 totalCartItemsQuantity: 0,
