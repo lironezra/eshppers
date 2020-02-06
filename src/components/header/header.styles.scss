@@ -84,8 +84,8 @@
     }
 
     .user-options {
-      width: 51%;
-      margin-left: 15px;
+      width: 38%;
+      margin-left: 34px;
     }
   }
 
@@ -93,6 +93,47 @@
     display: none;
   }
 }
+
+// meia query for iPad
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  { 
+    .header {
+      .user-options {
+        width: 50%;
+      }
+    }
+}
+
+// media query for Iphone5
+@media only screen and (min-device-width: 320px) 
+and (max-device-height: 568px) 
+and (-webkit-device-pixel-ratio: 2) {
+  .header {
+
+    .logo-container {
+      margin-top: 9px;
+      .app-logo {
+        
+        height: auto;
+        width: 120px;
+      }
+    }
+
+    .user-options {
+      width: 34%;
+      margin-left: 45px;
+    }
+  }
+ }
+// @media (max-width: 1024px) {
+//   .header {
+
+//     .user-options {
+//       width: 50%;
+//     }
+//   }
+// }
 
 @media (min-width: 769px) {
   .side-menu-button {

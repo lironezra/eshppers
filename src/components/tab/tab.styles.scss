@@ -17,6 +17,12 @@
 
 @media screen and (max-width: 768px) {
   .tab-list-item {
-    padding: 20px 30px;
+    padding: 20px 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .tab-list-item {
+    // padding: 20px 30px;
   }
 }
