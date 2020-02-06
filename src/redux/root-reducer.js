@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
+
+// Import the transformer creator
+import expireReducer  from 'redux-persist-expire';
+
 import storage from 'redux-persist/lib/storage';
 
 import authReducer from './auth/auth.reducer';
@@ -8,7 +12,18 @@ import cartReducer from './cart/cart.reducer';
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['cart']
+    whitelist: ['cart'],
+    transforms: [
+        expireReducer('cart', {
+            expireSeconds: 3600,
+            expiredState: {
+                cartItems: [],
+                totalCartItemsQuantity: 0,
+                totalPrice: 0
+            },
+            autoExpire: true
+        })
+     ]
 };
 
 const appReducers = combineReducers({
@@ -24,6 +39,5 @@ const rootReducer = (state, action) => {
 
     return appReducers(state, action)
 }
-
 
 export default persistReducer(persistConfig, rootReducer);

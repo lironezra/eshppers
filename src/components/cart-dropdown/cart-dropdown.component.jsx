@@ -18,16 +18,18 @@ const CartDropDown = (props) => {
     return (
         <div className={className.join(' ')}>
             <div className='cart-dropdown-header'>
-                <span><strong>My Bag</strong>, {totalCartItemsQuantity} items</span>
+                <span><strong>My Bag</strong>, {totalCartItemsQuantity ? totalCartItemsQuantity : 0} items</span>
             </div>
             <div className='cart-items'>
-                {cartItems.map((cartItem, index) => (
-                    <CartItem key={index} item={cartItem} />
-                ))}
+                {
+                    cartItems ? cartItems.map((cartItem, index) => (
+                        <CartItem key={index} item={cartItem} />
+                    )) : null
+                }
             </div>
             <div className='sub-total-price'>
                 <span>Sub-total</span>
-                <span>{totalPrice.toFixed(2)}$</span>
+                <span>{totalPrice ? totalPrice.toFixed(2) : 0}$</span>
             </div>
             <div className='btn-container'>
                 <button className='cart-view-bag-btn' onClick={() => viewBagClicked()}>VIEW BAG</button>

@@ -43,7 +43,9 @@ const BagPage = ({ totalCartItemsQuantity, cartItems, totalPrice }) => {
                     <div className='bag-item-list'>
                         <ul className='bag-items'>
                             {
-                                cartItems.map(item => <BagItem key={UUIDV4()} item={item} /> )
+                                cartItems ? 
+                                cartItems.map(item => <BagItem key={UUIDV4()} item={item} /> ) :
+                                null
                             }
                         </ul>
                     </div>
