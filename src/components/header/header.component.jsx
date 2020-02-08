@@ -73,7 +73,7 @@ class Header extends Component  {
                             show={this.state.showMyAccountMenu}
                             />
                     </div>
-                    <div>
+                    <div className='saved-items-option'>
                         <SavedItemsIcon />
                     </div>
                     <div className='cart-option' 

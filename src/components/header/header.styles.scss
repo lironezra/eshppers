@@ -56,10 +56,16 @@
 
   .user-options {
     width: 40%;
-    height: 100%;
+    // height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
+    .my-account-option, .saved-items-option, .cart-option {
+      height: 100%;
+      padding-left: 25px;
+      // padding: 0 0 10px 25px;
+    }
   }
 }
 
@@ -70,7 +76,7 @@
 @media screen and (max-width: 768px) {
   .header {
     height: 49px;
-    padding: 0 0px 0 15px;
+    padding: 0 10px 0 15px;
 
     .logo-container {
       width: 40%;
@@ -112,7 +118,9 @@ and (-webkit-device-pixel-ratio: 2) {
   .header {
 
     .logo-container {
-      margin-top: 9px;
+      // margin-top: 9px;
+      height: 100%;
+      padding-top: 5px;
       .app-logo {
         
         height: auto;
@@ -121,7 +129,7 @@ and (-webkit-device-pixel-ratio: 2) {
     }
 
     .user-options {
-      width: 34%;
+      width: 30%;
       margin-left: 45px;
     }
   }

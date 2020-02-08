@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,12 +12,20 @@ const CartIcon = ( props ) => {
     const { totalCartItemsQuantity, onMouseEnter } = props;
 
     return (
-        <div
-            className='cart-icon'
+        <Link className='option'
             onMouseEnter={onMouseEnter} >  
                 <FontAwesomeIcon className='icon' icon={faShoppingBag} />
-                <span className='item-count'>{totalCartItemsQuantity !== 0 ? totalCartItemsQuantity : null}</span>
-        </div>
+                <span className='item-count'>
+                    {totalCartItemsQuantity !== 0 ? totalCartItemsQuantity : null}
+                
+                </span>
+        </Link>
+        // <div
+        //     className='cart-icon'
+        //     onMouseEnter={onMouseEnter} >  
+        //         <FontAwesomeIcon className='icon' icon={faShoppingBag} />
+        //         <span className='item-count'>{totalCartItemsQuantity !== 0 ? totalCartItemsQuantity : null}</span>
+        // </div>
     );
 };
 

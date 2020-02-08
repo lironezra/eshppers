@@ -1,16 +1,16 @@
-.cart-icon {
-    padding: 0px 18px 0 15px;
+.option {
     cursor: pointer;
     color: white;
     font-size: 20px;
     letter-spacing: 1.5px;
-    line-height: 60px;     
+    line-height: 60px;    
+    margin-bottom: 5px;   
 
     .item-count {
-        position: absolute;;
+        position: absolute;
         color: #2d2d2d;
-        right: 53px;
-        top: 1.3px;
+        top: -45%;
+        left: 6px;
         font-size: 10px;
         font-weight: 700;
     }
