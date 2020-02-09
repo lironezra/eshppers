@@ -13,7 +13,8 @@ const CartIcon = ( props ) => {
 
     return (
         <Link className='option'
-            onMouseEnter={onMouseEnter} >  
+            onMouseEnter={onMouseEnter} 
+            to='/cart'>  
                 <FontAwesomeIcon className='icon' icon={faShoppingBag} />
                 <span className='item-count'>
                     {totalCartItemsQuantity !== 0 ? totalCartItemsQuantity : null}

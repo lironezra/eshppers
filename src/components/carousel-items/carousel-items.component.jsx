@@ -35,19 +35,19 @@ const settings = {
           breakpoint: 600,
           settings: {
             swipe: true,
-            slidesToShow: 2,
+            slidesToShow: 3,
             slidesToScroll: 1
           }
         },
-        // {
-        //   breakpoint: 480,
-        //   settings: {
-        //     infinite: true,
-        //     swipe: true,
-        //     slidesToShow: 1,
-        //     slidesToScroll: 1
-        //   }
-        // }
+        {
+          breakpoint: 480,
+          settings: {
+            infinite: true,
+            swipe: true,
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        }
       ]
 };
 

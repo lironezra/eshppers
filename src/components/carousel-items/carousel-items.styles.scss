@@ -1,5 +1,5 @@
 .carousel-container {
-    width: 65%;
+    // width: 100%;
     margin: 0 auto;
 
     .link-item {
@@ -54,7 +54,7 @@
 
 @media screen and (max-width: 768px) {
     .carousel-container {
-        width: 85%;
+        width: 100%;
     }  
 }
 

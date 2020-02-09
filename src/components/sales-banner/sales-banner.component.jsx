@@ -28,8 +28,8 @@ const SalesBanner = ({ backgroundImage }) => {
                         </div>
                     </header>
                 </Link>
-                <CarouselItems />
             </article>
+                <CarouselItems />
         </section>
     );
 };
