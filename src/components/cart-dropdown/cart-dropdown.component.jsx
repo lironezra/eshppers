@@ -8,7 +8,7 @@ import './cart-dropdown.styles.scss';
 
 const CartDropDown = (props) => {
     const { cartItems, totalCartItemsQuantity, totalPrice, show } = props;
-    const className = ['cart-dropdown' , show ? 'dropdown-open' : 'dropdown-closed'];
+    const className = ['cart-dropdown' , show ? 'open' : 'closed'];
 
     const viewBagClicked = () => {
         props.viewBagClickedHandler();
