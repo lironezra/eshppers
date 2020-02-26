@@ -9,6 +9,7 @@ import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/auth.reducer';
 import cartReducer from './cart/cart.reducer';
 import directoryReducer from './directory/directory.reducer';
+import shopReducer from './shop/shop.reducer';
 
 const persistConfig = {
     key: 'root',
@@ -32,7 +33,8 @@ const appReducers = combineReducers({
     /* App top-level reducers */
     auth: authReducer,
     cart: cartReducer,
-    directory: directoryReducer
+    directory: directoryReducer,
+    shop: shopReducer
 });
 
 const rootReducer = (state, action) => {
