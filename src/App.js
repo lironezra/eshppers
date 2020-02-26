@@ -62,7 +62,7 @@ class App extends Component {
                   (<SignInAndSignUpPage loading={loading}/>)              
                 } />
               <ProtectedRoute
-                exact
+                // exact
                 path="/shop"
                 component={ShopPage}
                 isAuthenticated={isAuthenticated}

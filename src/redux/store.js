@@ -7,7 +7,8 @@ import { verifyAuth } from './auth/auth.actions'
 
 import rootReducer from './root-reducer';
 
-const middlewares = [logger, thunk];
+//const middlewares = [logger, thunk];
+const middlewares = [thunk];
 
 const store = createStore(rootReducer, applyMiddleware(...middlewares));
 store.dispatch(verifyAuth());
