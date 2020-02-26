@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import UUIDV4 from 'uuid/v4';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
@@ -44,8 +43,7 @@ const BagPage = ({ totalCartItemsQuantity, cartItems, totalPrice }) => {
                         <ul className='bag-items'>
                             {
                                 cartItems ? 
-                                cartItems.map(item => <BagItem key={UUIDV4()} item={item} /> ) :
-                                null
+                                cartItems.map((item, index) => <BagItem key={index} item={item} /> ) : null
                             }
                         </ul>
                     </div>

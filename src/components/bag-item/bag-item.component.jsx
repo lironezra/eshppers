@@ -66,11 +66,14 @@ const BagItem = (props) => {
                 updatedValues = { size: selectedSize, quantity: parseInt(selectedQuantity) }
             }
             updateItem(props.item, updatedValues);
+            setLoading(false);
+            setEditActiveClass(false)
         }, 1500);
     }
 
     return(
         <>
+            {console.log('render bagItem:', id)}
             <li key={id} className={`bag-item ${deleted}`}>
                 {
                     loading ? <Spinner /> : 
