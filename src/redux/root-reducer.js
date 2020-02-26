@@ -8,6 +8,7 @@ import storage from 'redux-persist/lib/storage';
 
 import authReducer from './auth/auth.reducer';
 import cartReducer from './cart/cart.reducer';
+import directoryReducer from './directory/directory.reducer';
 
 const persistConfig = {
     key: 'root',
@@ -30,7 +31,8 @@ const persistConfig = {
 const appReducers = combineReducers({
     /* App top-level reducers */
     auth: authReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    directory: directoryReducer
 });
 
 const rootReducer = (state, action) => {
