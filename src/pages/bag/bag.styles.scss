@@ -89,9 +89,8 @@
         max-width: 370px;
         margin-left: 10px;
         transform: translate3d(0,0,0);
-        width: 35%;
+        width: 365px;
         background-color: #fff;
-        position: fixed;
         padding: 20px;   
         z-index: 10;     
 
@@ -162,6 +161,12 @@
             }
         }
     }
+}
+
+.is-fixed {
+    position: fixed;
+    top: 0;
+    margin-top: 10px;
 }
 
 

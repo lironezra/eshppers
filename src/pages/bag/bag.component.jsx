@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,14 +14,28 @@ import './bag.styles.scss';
 
 const BagPage = ({ totalCartItemsQuantity, cartItems, totalPrice }) => {   
     let cartContent = null; 
+    const [fixed, setFixed] = useState('')
 
     useEffect(() => {
+        // change page background color
         document.body.style.backgroundColor = '#eee';
 
+        window.addEventListener("scroll", handleScroll);
         return () => {
             document.body.style.backgroundColor = 'white';
+            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
+    const handleScroll = () => {
+        if (window.scrollY > 55) {
+            setFixed('is-fixed')
+            //elementId.classList.add('is-sticky');
+          } else {
+            setFixed('')
+            //elementId.classList.remove('is-sticky');
+          }
+    }
 
     if (totalCartItemsQuantity === 0) {
         cartContent = 
@@ -63,7 +77,8 @@ const BagPage = ({ totalCartItemsQuantity, cartItems, totalPrice }) => {
                         description='Send it back within 45 days of receiving your order.' />
                 </div>
             </div>
-            <div className='bag-secondary-content-wrapper'>
+
+            <div className={`bag-secondary-content-wrapper ${fixed}`}>
                 <div className='bag-title-holder-total'>
                     <h2 className='title'>TOTAL</h2>
                 </div>
