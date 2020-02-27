@@ -30,10 +30,8 @@ const BagPage = ({ totalCartItemsQuantity, cartItems, totalPrice }) => {
     const handleScroll = () => {
         if (window.scrollY > 55) {
             setFixed('is-fixed')
-            //elementId.classList.add('is-sticky');
           } else {
             setFixed('')
-            //elementId.classList.remove('is-sticky');
           }
     }
 
