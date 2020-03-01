@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { addItem } from '../../redux/cart/cart.actions';
@@ -23,6 +23,10 @@ const ProductCard = ({location, addItem}) => {
     const [error, setError] = useState(false);
     const { item, item : { name, price, imageUrl } } = location.state;
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+      
     const handleChange = size => {
         setError(false);
         setSize(`${size}`);
