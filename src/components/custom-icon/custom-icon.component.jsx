@@ -1,39 +1,45 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, Redirect, withRouter, Route } from 'react-router-dom';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faRocketchat } from "@fortawesome/free-brands-svg-icons";
 import { faArchive } from "@fortawesome/free-solid-svg-icons";
 
+import MyAccountPage from '../../pages/my-account/my-account.component';
+
 
 import './custom-icon.styles.scss';
 
 const CustomIcon = React.memo(
-    ({ type, name }) => {
+    ({ type, name, location, history }) => {
         let iconContent = null;
         switch (type) {
             case 'user-accoun':
                 iconContent = 
-                    <Link to='/user-account' className='icon-link'>
+                <button to='/user-account' className='icon-link' onClick={() => {
+                    console.log(location.pathname);
+                    console.log(window.location);
+                    window.location.assign(`${window.location.origin}/user-account`)
+                }}>
                         <FontAwesomeIcon icon={faUser} className='icon' />
                         {name}
-                    </Link>;
+                </button>;
                 break;
             case 'my-orders': 
                 iconContent = 
-                    <Link to='/my-orders' className='icon-link'>
+                    <button to='/my-orders' className='icon-link'>
                         <FontAwesomeIcon icon={faArchive} className='icon' />
                         {name}
-                    </Link>;
+                    </button>;
                 break;
             case 'contact-preferences': 
                 iconContent = 
-                    <Link  style={{border: 'none'}} to='/contact-preferences' className='icon-link'>
+                    <button  style={{border: 'none'}} to='/contact-preferences' className='icon-link'>
                         <FontAwesomeIcon icon={faRocketchat} className='icon'/>
                         {name}
-                    </Link>;
+                    </button>;
                 break;
             default:
                 break;
@@ -46,4 +52,4 @@ const CustomIcon = React.memo(
     }
 );
 
-export default CustomIcon;
+export default withRouter(CustomIcon);
