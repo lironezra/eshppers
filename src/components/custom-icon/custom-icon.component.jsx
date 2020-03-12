@@ -7,9 +7,6 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faRocketchat } from "@fortawesome/free-brands-svg-icons";
 import { faArchive } from "@fortawesome/free-solid-svg-icons";
 
-import MyAccountPage from '../../pages/my-account/my-account.component';
-
-
 import './custom-icon.styles.scss';
 
 const CustomIcon = React.memo(
