@@ -3,6 +3,7 @@ import {Animated} from "react-animated-css";
 import { connect } from 'react-redux';
 
 import { removeItem, updateItem } from '../../redux/cart/cart.actions'
+import  { mapSizeOptionsByProductType } from '../../utils/product-sizing-mapper';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
@@ -13,18 +14,15 @@ import Spinner from '../Shared/spinner/spinner.component';
 import './bag-item.styles.scss';
 
 const quantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const sizeOptions = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 
 const BagItem = (props) => {
-    const {id, imageUrl, price, name, size, quantity} = props.item;
+    const { id, imageUrl, price, name, size, quantity, productType } = props.item;
     const { removeItem, updateItem, cartItems } = props;
 
     const [deleted, setClassItemDeleted] = useState('');
     const [editActive, setEditActiveClass] = useState(false); 
-
     const [selectedSize, setSelectedSize] = useState(size);
     const [selectedQuantity, setSelectedQuantity] = useState(quantity);
-
     const [loading, setLoading] = useState(false);
 
     const onRemoveItem = (item) => {
@@ -73,7 +71,6 @@ const BagItem = (props) => {
 
     return(
         <>
-            {console.log('render bagItem:', id)}
             <li key={id} className={`bag-item ${deleted}`}>
                 {
                     loading ? <Spinner /> : 
@@ -91,7 +88,7 @@ const BagItem = (props) => {
                                     value={selectedSize}
                                     onChange={(event) => handleSelectChanged(event)}>
                                     {
-                                        sizeOptions.map(option => <option key={option} className='option'>{option}</option>)
+                                        mapSizeOptionsByProductType(productType).map(option => <option key={option} className='option'>{option}</option>)
                                     }
                                 </select>
                                 <span className='quantity-holder'>Qty</span>
