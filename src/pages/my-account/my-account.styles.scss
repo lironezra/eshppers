@@ -1,0 +1,121 @@
+.my-account-page-container {
+    max-width: 800px;
+    margin: 0 auto;
+    transition: opacity 1s;
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 45px 0;
+        background-color: transparent;
+
+        .logo {
+            cursor: pointer;
+            
+            .app-logo {
+                width: 160px;
+            }
+        }
+
+        .header-text {
+            font-size: 22px;
+            letter-spacing: 1.8px;
+            color: #2d2d2d;
+        }
+
+        .norton-logo {
+            width: 110px;
+        }
+    }
+
+    .content {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+
+        .user-options-container {
+            width: 35%;
+
+            .user-welcome-card {
+                width: 100%;
+                background-color: white;
+                padding: 40px 0px 40px 0px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                margin-bottom: 8px;
+
+                .user-welcome-wrapper {
+                    margin-left: 90px;
+
+                    .hi {
+                        font-size: 14px;
+                        margin-bottom: 0;
+                        letter-spacing: 1px;
+                    }
+
+                    .name {
+                        letter-spacing: 1.5px;
+                        font-weight: bold;
+                        margin-top: 0;
+                    }
+                }
+
+                .dot {
+                    left: -12px;
+                    height: 85px;
+                    width: 85px;
+                    background: #2d2d2d;
+                    border-radius: 50%;
+                    display: inline-block;
+                    position: absolute;
+                    text-align: center;
+                    text-indent: 0.4rem;
+                    vertical-align: middle;
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    font-weight: bold;
+                    font-size: 32px;
+                    letter-spacing: 2px;
+
+                    p {
+                        margin: 0 auto;
+                    }
+                    
+                }
+            }
+        }
+
+        .welcome-user {
+            width: 65%;
+            position: relative;
+            margin-left: 15px;
+
+            .welcome-img {
+                width: 100%;
+            }
+
+            .welcome-user-text {
+                position: absolute;
+                top: 68px;
+                left: 33px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+
+                span {
+                    background-color: #2d2d2d;
+                    color: #fff;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                    line-height: 2;
+                    letter-spacing: 2px;
+                    padding: 0 calc(3 * 4px);
+                    margin-bottom: calc(1 * 4px);
+                }
+            }
+        }
+    }
+}
