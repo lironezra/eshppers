@@ -1,4 +1,4 @@
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+import { auth,  createUserProfileDocument } from '../../firebase/firebase.utils';
 import * as actionTypes from './auth.types';
 
 const requestSignup = () => {
@@ -7,10 +7,11 @@ const requestSignup = () => {
     };
 };
 
-const reciveSignup = user => {
+const reciveSignup = (userUid, userDisplayName) => {
   return {
       type: actionTypes.SIGNUP_SUCCESS,
-      user
+      userUid,
+      userDisplayName
   }  
 };
 
@@ -27,10 +28,11 @@ const requestLogin = () => {
     };
 };
 
-const receiveLogin = user => {
+const receiveLogin = (userUid, userDisplayName) => {
     return {
       type: actionTypes.LOGIN_SUCCESS,
-      user
+      userUid,
+      userDisplayName
     };
 };
 
@@ -90,7 +92,7 @@ export const signupUser = (newUser) => dispatch => {
         .catch(error => {
             dispatch(signupError(error))
         });   
-        dispatch(reciveSignup(user));
+        dispatch(reciveSignup(user.uid, user.displayName));
     })
     .catch(error => {
         dispatch(signupError(error));
@@ -101,8 +103,8 @@ export const loginUser = (email, password) => dispatch => {
     dispatch(requestLogin());
     auth
     .signInWithEmailAndPassword(email,password)
-    .then(user => {
-        dispatch(receiveLogin(user));
+    .then(({user}) => {
+        dispatch(receiveLogin(user.uid, user.displayName));
         dispatch(checkAuthTimeout(3600));
     })
     .catch(error => {
@@ -128,7 +130,7 @@ export const verifyAuth = () => dispatch => {
     .onAuthStateChanged(user => {
         createUserProfileDocument(user);
         if (user !== null) {
-            dispatch(receiveLogin(user));
+            dispatch(receiveLogin(user.uid, user.displayName));
             dispatch(storeAuthenticatedUserDataToLocalStorage(user));
             dispatch(checkAuthTimeout(3600))
         }
