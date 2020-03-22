@@ -8,7 +8,7 @@ import CustomIcon from '../custom-icon/custom-icon.component';
 
 import './my-account-dropdown.styles.scss';
 
-const MyAccountDropdown = ({isAuthenticated, onLogout, currentUser, show}) => {
+const MyAccountDropdown = ({isAuthenticated, onLogout, userDisplayName, show}) => {
     const className = ['my-account-dropdown' , show ? 'dropdown-open' : 'dropdown-closed'];
 
     return (
@@ -18,7 +18,7 @@ const MyAccountDropdown = ({isAuthenticated, onLogout, currentUser, show}) => {
                 {
                     isAuthenticated ? (
                             <Link to='/' onClick={onLogout} className='header-link'>
-                                <span className='hello-user-text'>Hi {currentUser.displayName}</span>
+                                <span className='hello-user-text'>Hi {userDisplayName}</span>
                                 <span className='sign-out-link-text'>Sign Out</span>
                             </Link>
                     ) : (
@@ -40,7 +40,7 @@ const MyAccountDropdown = ({isAuthenticated, onLogout, currentUser, show}) => {
 
 const mapStateToProps = state => {
     return {
-        currentUser: state.auth.user,
+        userDisplayName: state.auth.userDisplayName,
         isAuthenticated: state.auth.isAuthenticated,
         logoutError: state.auth.logoutError
     }
