@@ -21,7 +21,7 @@ import ProductCard from './components/product-card/product-card.component';
 import SideDrawer from './components/side-drawer/side-drawer.component';
 import Backdrop from './components/Shared/backdrop/backdrop.component';
 
-const routeApplicationPaths  = ['/', '/signin', '/shop', "/like-items", "/cart", ];
+const routeApplicationPaths  = ['/', '/signin', '/shop', "/like-items", "/cart", "/women", "/men"];
 
 class App extends Component {
   constructor(props) {
@@ -35,9 +35,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // console.log(this.props.location.pathname)
     // Checking for routes that not part of the application routes
-    if (!routeApplicationPaths.includes(this.props.location.pathname)) {
+    
+    if (!this.isValidRoute()) {
       this.setState( { redirectTo404Page: true })
     }
 
@@ -58,9 +58,15 @@ class App extends Component {
     this.setState({ sideDrawerOpen: false })
   };
 
+  isValidRoute = () => {
+    return routeApplicationPaths.includes(this.props.location.pathname) ||
+    /product-item\/[a-zA-Z ]*\/\d+$/.test(this.props.location.pathname)
+  }
+
   render() {
+    console.log('App render')
     let backDrop;
-    const { isAuthenticated, isVerifying, loading, currentUser } = this.props;
+    const { isAuthenticated, isVerifying, loading, userUid } = this.props;
 
     if (this.state.sideDrawerOpen) {
       backDrop = <Backdrop click={this.backDropClickHandler}/>
@@ -77,7 +83,7 @@ class App extends Component {
               exact 
               path='/signin'
               render={() => 
-                currentUser ? (
+                userUid ? (
                   <Redirect to='/' /> 
                 ) :
                 (<SignInAndSignUpPage loading={loading}/>)              
@@ -119,6 +125,10 @@ class App extends Component {
       layout = <Route path='*' component={NotFoundPage} />;
     }
 
+    if (this.state.redirectMyAccountPage) { 
+      layout = <Route path='/user-account' component={MyAccountPage} />;
+    }
+
     return (
         <div className='main'>  
           { layout }          
@@ -129,7 +139,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.auth.user,
+    //currentUser: state.auth.user,
+    userUid: state.auth.userUid,
     isAuthenticated: state.auth.isAuthenticated,
     isVerifying: state.auth.isVerifying,
     loading: state.auth.isSigningup || state.auth.isLoggingIn ||  state.auth.isLoggingOut || state.auth.isVerifying,
