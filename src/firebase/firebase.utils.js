@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/database';
 import 'firebase/auth';
 
 const config = {
@@ -37,10 +38,38 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
 };
 
+export const updateUserProfileDocument = async (userUid, updateValues) => {
+    if (!userUid) return;
+
+    const userRef = firestore.doc(`users/${userUid}`);
+    const { firstName, lastName, email } = updateValues;
+    // const { firstName, lastName, email, dateOfBirth } = updateValues;
+    
+    try {
+        // Update user in firestore DB
+        await userRef.set({
+            displayName: `${firstName} ${lastName}`,
+            email,
+            //dateOfBirth
+        }, { merge: true });
+        
+        await firebase.auth().currentUser.updateProfile({
+            displayName: `${firstName} ${lastName}`
+        })
+    } catch (error) {
+        console.log('error updating user!!!', error)
+    }
+
+    return firebase.auth().currentUser;
+};
+
+
+
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+export const firebaseDB = firebase.database();
 
 // Section for google authentication
 const googleProvider = new firebase.auth.GoogleAuthProvider();
