@@ -13,8 +13,6 @@ import Spinner from '../Shared/spinner/spinner.component';
 
 import './bag-item.styles.scss';
 
-const quantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
 const BagItem = (props) => {
     const { id, imageUrl, price, name, size, quantity, productType } = props.item;
     const { removeItem, updateItem, cartItems } = props;
@@ -32,17 +30,6 @@ const BagItem = (props) => {
         }, 2000);
     };
 
-    const handleSelectChanged = (event) => {
-        setEditActiveClass(true);
-        const { value, name } = event.target;
-
-        if(name === 'size') {
-            setSelectedSize(value)
-        } else if (name === 'quantity') {
-            setSelectedQuantity(value)
-        }
-    };
-
     const cancelEditClicked = () => {
         setEditActiveClass(false);
         setSelectedSize(size);
@@ -51,23 +38,25 @@ const BagItem = (props) => {
 
     const updateItemClicked = ({id, size, quantity}) => {
         setLoading(true);
-        setTimeout(() => {
             
-            let updatedValues = {};
-            const updatedItemIndex = cartItems.findIndex(item => item.id === id && item.size === size && item.quantity === quantity);
-            
-            if (cartItems[updatedItemIndex].size !== selectedSize && cartItems[updatedItemIndex].quantity !== selectedQuantity) {
-                updatedValues = { size: selectedSize , quantity: parseInt(selectedQuantity) };
-            } else if (cartItems[updatedItemIndex].size === selectedSize && cartItems[updatedItemIndex].quantity !== selectedQuantity) {
-                updatedValues = { quantity: parseInt(selectedQuantity) };
-            } else if(cartItems[updatedItemIndex].size !== selectedSize && cartItems[updatedItemIndex].quantity === selectedQuantity) {
-                updatedValues = { size: selectedSize, quantity: parseInt(selectedQuantity) }
-            }
-            updateItem(props.item, updatedValues);
-            setLoading(false);
-            setEditActiveClass(false)
-        }, 1500);
+        let updatedValues = {};
+        const updatedItemIndex = cartItems.findIndex(item => item.id === id && item.size === size && item.quantity === quantity);
+        
+        if (cartItems[updatedItemIndex].size !== selectedSize && cartItems[updatedItemIndex].quantity !== selectedQuantity) {
+            updatedValues = { size: selectedSize , quantity: parseInt(selectedQuantity) };
+        } else if (cartItems[updatedItemIndex].size === selectedSize && cartItems[updatedItemIndex].quantity !== selectedQuantity) {
+            updatedValues = { quantity: parseInt(selectedQuantity) };
+        } else if(cartItems[updatedItemIndex].size !== selectedSize && cartItems[updatedItemIndex].quantity === selectedQuantity) {
+            //updatedValues = { size: selectedSize }
+            updatedValues = { size: selectedSize, quantity: parseInt(selectedQuantity) }
+        }
+
+        updateItem(props.item, updatedValues);
+        setLoading(false);
+        setEditActiveClass(false)
     }
+
+    const currentBagItem = cartItems.find(item => item.id === id && item.size === size);
 
     return(
         <>
@@ -85,8 +74,11 @@ const BagItem = (props) => {
                                 <select 
                                     className='size-options' 
                                     name='size' 
-                                    value={selectedSize}
-                                    onChange={(event) => handleSelectChanged(event)}>
+                                    value={currentBagItem.size}
+                                    onChange={(e) => {
+                                        setEditActiveClass(true);
+                                        setSelectedSize(e.target.value);
+                                        }}>
                                     {
                                         mapSizeOptionsByProductType(productType).map(option => <option key={option} className='option'>{option}</option>)
                                     }
@@ -95,10 +87,15 @@ const BagItem = (props) => {
                                 <select 
                                     className='quantity-options'
                                     name='quantity'  
-                                    value={selectedQuantity}
-                                    onChange={(event) => handleSelectChanged(event)}>
+                                    value={currentBagItem.quantity}
+                                    onChange={(e) => {
+                                        setEditActiveClass(true);
+                                        setSelectedQuantity(e.target.value);
+                                        }}>
                                     {
-                                        quantityOptions.map(option => <option key={option} className='option'>{option}</option>)
+                                        Array.from("0123456789", option => {
+                                            return <option key={option} className='option'>{parseInt(option) + 1}</option>
+                                        })
                                     }
                                 </select>
                             </div>
