@@ -51,12 +51,12 @@ const MyAccountPage = ({ match, user, getCurrentUser }) => {
                     <div className='user-welcome-card'>
                         <div className='dot'>
                             <p>
-                                {user ? user.displayName.match(/\b(\w)/g).join('') : null}
+                                {user ? user.displayName.match(/\b(\w)/g).join('') : ''}
                             </p>
                         </div>
                         <div className='user-welcome-wrapper'>
                             <p className='hi'>Hi,</p>
-                            <p className='name'>{user ? user.displayName : null}</p>
+                            <p className='name'>{user ? user.displayName : ''}</p>
                         </div>
                     </div>
                     <div className='user-side-menu'>
@@ -95,7 +95,6 @@ const MyAccountPage = ({ match, user, getCurrentUser }) => {
 
 const mapStateToProps = state => {
     return {
-        //userDisplayName: state.auth.userDisplayName,
         user: state.user.user
     }
 }
