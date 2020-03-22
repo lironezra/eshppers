@@ -1,13 +1,16 @@
 .my-account-page-container {
-    max-width: 800px;
+    max-width: 930px;
     margin: 0 auto;
-    transition: opacity 1s;
+    transition: opacity 2s;
+    margin-bottom: 50px;
+
     .header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         padding: 45px 0;
         background-color: transparent;
+        margin-bottom: 20px;
 
         .logo {
             cursor: pointer;
@@ -18,7 +21,7 @@
         }
 
         .header-text {
-            font-size: 22px;
+            font-size: 25px;
             letter-spacing: 1.8px;
             color: #2d2d2d;
         }
@@ -34,7 +37,8 @@
         flex-direction: row;
 
         .user-options-container {
-            width: 35%;
+            // width: 35%;
+            width: calc(100% * 4 / 12);
 
             .user-welcome-card {
                 width: 100%;
@@ -80,42 +84,63 @@
                     letter-spacing: 2px;
 
                     p {
+                        padding-right: 5px;
                         margin: 0 auto;
+                        text-transform: uppercase;
                     }
                     
                 }
             }
-        }
 
-        .welcome-user {
-            width: 65%;
-            position: relative;
-            margin-left: 15px;
+            .user-side-menu {
+                // padding-left: 10px;
+                // padding-right: 10px;
 
-            .welcome-img {
-                width: 100%;
-            }
+                .main-nav {
+                    display: block;
 
-            .welcome-user-text {
-                position: absolute;
-                top: 68px;
-                left: 33px;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
+                    .main-list {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        background-color: #FFFFFF;
 
-                span {
-                    background-color: #2d2d2d;
-                    color: #fff;
-                    text-transform: uppercase;
-                    font-weight: bold;
-                    font-size: 1.5rem;
-                    line-height: 2;
-                    letter-spacing: 2px;
-                    padding: 0 calc(3 * 4px);
-                    margin-bottom: calc(1 * 4px);
+                        .main-list-item {
+                            display: block;
+                            color: #2d2d2d;
+                            font-weight: 400;
+                            font-size: 1rem;
+                            letter-spacing: 1px;
+                            line-height: 2rem;
+                            padding: calc(3 * 4px) 0 calc(3 * 4px) 50px;
+                            border-bottom: .5px solid rgb(187, 184, 184);
+                            
+                            &:hover {
+                                text-decoration-line: underline;
+                                text-decoration-style: solid;
+                                text-decoration-color:#2d2d2d;
+                                text-decoration-thickness: 1px;
+                            }
+
+                            &:last-child {
+                                border-bottom: none;
+                            }
+                        }
+                    }
                 }
             }
         }
+
+        .selected-user-option {
+            width: 65%;
+            position: relative;
+            margin-left: 15px;
+        }
     }
+}
+
+.selectedLink {
+    background-color: #f8f8f8;
+    font-weight: bolder !important;
+    border-left: 4px solid #0770cf;
 }
