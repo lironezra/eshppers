@@ -47,21 +47,15 @@ class Header extends Component  {
                 </Link>
                 <div className='header-navigation-items'>
                     <ul>
-                        {/* <li> */}
-                            <Link className='navigation-item' to='/shop'>
-                                SHOP                    
-                            </Link>     
-                        {/* </li>
-                        <li> */}
-                            <Link className='navigation-item' to='/women'>
-                                WOMEN                   
-                            </Link>   
-                        {/* </li>
-                        <li> */}
-                            <Link className='navigation-item' to='/men'>
-                                MEN                   
-                            </Link> 
-                        {/* </li> */}
+                        <Link className='navigation-item' to='/shop'>
+                            SHOP                    
+                        </Link>     
+                        <Link className='navigation-item' to='/women'>
+                            WOMEN                   
+                        </Link>   
+                        <Link className='navigation-item' to='/men'>
+                            MEN                   
+                        </Link> 
                     </ul>
                 </div>
                 <div className='user-options'>
