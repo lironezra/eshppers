@@ -10,6 +10,7 @@ import authReducer from './auth/auth.reducer';
 import cartReducer from './cart/cart.reducer';
 import directoryReducer from './directory/directory.reducer';
 import shopReducer from './shop/shop.reducer';
+import userReducer from './user/user.reducer';
 
 const persistConfig = {
     key: 'root',
@@ -34,7 +35,8 @@ const appReducers = combineReducers({
     auth: authReducer,
     cart: cartReducer,
     directory: directoryReducer,
-    shop: shopReducer
+    shop: shopReducer,
+    user: userReducer
 });
 
 const rootReducer = (state, action) => {
