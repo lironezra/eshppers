@@ -1,0 +1,29 @@
+.select-container {
+    position: relative;
+    
+    .select-input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: #fff;
+        border: 1px solid #777;
+        border-radius: 0;
+        color: #2d2d2d;
+        font-size: .9rem;
+        height: 44px;
+        padding: 0 calc(7 * 4px) 0 calc(4 * 4px);
+        width: 100%;
+    }
+
+    .arrow-down {
+        pointer-events: none;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: 18px;
+        right: 22px;
+        background-image: url('../../../assets//down-arrow.svg');
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+}
