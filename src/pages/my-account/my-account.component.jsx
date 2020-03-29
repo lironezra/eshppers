@@ -15,7 +15,6 @@ import './my-account.styles.scss';
 
 const MyAccountPage = ({ match, user, getCurrentUser }) => {
     const [opacity, setOpacity] = useState(false);
-    let style = { opacity: 0 }
 
     useEffect(() => {
         // change page background color
@@ -28,12 +27,8 @@ const MyAccountPage = ({ match, user, getCurrentUser }) => {
         };
     }, [getCurrentUser]);
 
-    if(opacity) { 
-        style = { opacity: 1 }
-    }
-
     return (
-        <div className={`my-account-page-container`} style={style}>
+        <div className={`my-account-page-container`} style={opacity ? { opacity: 1 } : { opacity: 0 }}>
             <header className="header">
                 <div className="logo">
                     <img 
@@ -76,15 +71,9 @@ const MyAccountPage = ({ match, user, getCurrentUser }) => {
                 </div>
                 <div className='selected-user-option'>
                      <Switch>
-                        <Route exact path='/user-account'>
-                            <AccountOverview />    
-                        </Route> 
-                        <Route path='/user-account/orders'>
-                            <MyOrders />
-                        </Route>
-                        <Route path='/user-account/my-details'>
-                            <MyDetails />
-                        </Route>
+                        <Route exact path='/user-account' render={() => <AccountOverview />} />
+                        <Route path='/user-account/orders' render={() => <MyOrders />} />
+                        <Route path='/user-account/my-details' render={() =>  <MyDetails />} />
                      </Switch>
                 </div>
             </div>
@@ -95,7 +84,8 @@ const MyAccountPage = ({ match, user, getCurrentUser }) => {
 
 const mapStateToProps = state => {
     return {
-        user: state.user.user
+        user: state.user.user,
+        isLoading: state.user.isUpdatingProfile
     }
 }
 
