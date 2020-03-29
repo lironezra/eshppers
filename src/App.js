@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { verifyAuth }  from './redux/auth/auth.actions';
 
 import ProtectedRoute from './components/protected-route/protected-route.component';
+import WithSpinner from './components/hoc/with-spinner/with-spinner.component';
 
 import './App.css';
 
@@ -22,6 +23,8 @@ import SideDrawer from './components/side-drawer/side-drawer.component';
 import Backdrop from './components/Shared/backdrop/backdrop.component';
 
 const routeApplicationPaths  = ['/', '/signin', '/shop', "/like-items", "/cart", "/women", "/men"];
+
+const SignInSignUpaPageWithSpinner = WithSpinner(SignInAndSignUpPage);
 
 class App extends Component {
   constructor(props) {
@@ -86,7 +89,7 @@ class App extends Component {
                 userUid ? (
                   <Redirect to='/' /> 
                 ) :
-                (<SignInAndSignUpPage loading={loading}/>)              
+                (<SignInSignUpaPageWithSpinner isLoading={loading}/>)                        
               } />
             <ProtectedRoute
               // exact
@@ -139,7 +142,6 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    //currentUser: state.auth.user,
     userUid: state.auth.userUid,
     isAuthenticated: state.auth.isAuthenticated,
     isVerifying: state.auth.isVerifying,
