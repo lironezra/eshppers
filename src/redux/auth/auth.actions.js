@@ -87,12 +87,12 @@ export const signupUser = (newUser) => dispatch => {
             displayName: newUser.displayName
         })
         .then(() => {
-            createUserProfileDocument(user);
+            createUserProfileDocument(user)
+            .then(dispatch(reciveSignup(user.uid, user.displayName)));
         })
         .catch(error => {
             dispatch(signupError(error))
         });   
-        dispatch(reciveSignup(user.uid, user.displayName));
     })
     .catch(error => {
         dispatch(signupError(error));
